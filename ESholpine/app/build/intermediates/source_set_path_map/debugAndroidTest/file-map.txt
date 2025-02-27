@@ -1,0 +1,5 @@
+com.example.e_sholpine.test.app-core-1.6.1-0 C:\Users\Administrator\.gradle\caches\transforms-3\8b93b161a98fda7c1f67d503e013a78c\transformed\core-1.6.1\res
+com.example.e_sholpine.test.app-androidTest-1 C:\Users\Administrator\AndroidStudioProjects\ESholpine\app\build\generated\res\resValues\androidTest\debug
+com.example.e_sholpine.test.app-mergeDebugAndroidTestResources-2 C:\Users\Administrator\AndroidStudioProjects\ESholpine\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.e_sholpine.test.app-mergeDebugAndroidTestResources-3 C:\Users\Administrator\AndroidStudioProjects\ESholpine\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.e_sholpine.test.app-merged_res-4 C:\Users\Administrator\AndroidStudioProjects\ESholpine\app\build\intermediates\merged_res\debugAndroidTest

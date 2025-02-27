@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "833276548030",
+    "project_id": "e-sholpine",
+    "storage_bucket": "e-sholpine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833276548030:android:511965c6374bd456eb5fef",
+        "android_client_info": {
+          "package_name": "com.example.e_sholpine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833276548030-322e7pu84ij49igcb734ciifc16fo6if.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_sholpine",
+            "certificate_hash": "2665d4dbc0b61712edfbf4555c0baad2c4a69130"
+          }
+        },
+        {
+          "client_id": "833276548030-igegpje8a4pjgvdjb904kj8d10ip5mil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChVZCnkXcRpJmJ59CL1hjwhQlVsvYN9G0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833276548030-igegpje8a4pjgvdjb904kj8d10ip5mil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

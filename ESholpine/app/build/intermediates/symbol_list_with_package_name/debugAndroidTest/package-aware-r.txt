@@ -1,0 +1,3 @@
+com.example.e_sholpine.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

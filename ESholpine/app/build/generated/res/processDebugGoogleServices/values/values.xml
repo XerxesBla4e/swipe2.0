@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">833276548030-igegpje8a4pjgvdjb904kj8d10ip5mil.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">833276548030</string>
+    <string name="google_api_key" translatable="false">AIzaSyChVZCnkXcRpJmJ59CL1hjwhQlVsvYN9G0</string>
+    <string name="google_app_id" translatable="false">1:833276548030:android:511965c6374bd456eb5fef</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyChVZCnkXcRpJmJ59CL1hjwhQlVsvYN9G0</string>
+    <string name="google_storage_bucket" translatable="false">e-sholpine.firebasestorage.app</string>
+    <string name="project_id" translatable="false">e-sholpine</string>
+</resources>
