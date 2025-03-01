@@ -9,6 +9,7 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -23,7 +24,12 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -59,6 +65,9 @@
         </activity>
         <activity
             android:name="com.example.e_sholpine.activity.DeleteVideoSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.e_sholpine.activity.ReferralActivity"
             android:exported="false" />
         <activity
             android:name="com.example.e_sholpine.activity.VideoActivity"
@@ -301,6 +310,14 @@
             android:theme="@style/Theme.Hidden" >
         </activity>
         <activity
+            android:name="androidx.credentials.playservices.IdentityCredentialApiHiddenActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:enabled="true"
+            android:exported="false"
+            android:fitsSystemWindows="true"
+            android:theme="@style/Theme.Hidden" >
+        </activity>
+        <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"
             android:exported="false"
@@ -366,12 +383,6 @@
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.e_sholpine.androidx-startup"
@@ -386,6 +397,11 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <uses-library
             android:name="androidx.window.extensions"

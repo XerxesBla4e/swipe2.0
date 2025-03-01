@@ -156,14 +156,24 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
         positionEditor.apply();
     }
 
+
     public void continueVideo() {
+        if (context == null) {
+            Log.e(TAG, "Context is null. Fragment might not be attached to an activity.");
+            return;
+        }
+        if (videos == null || videos.isEmpty()) {
+            Log.d(TAG, "No videos available to play.");
+            return;
+        }
         SharedPreferences currentPosPref = context.getSharedPreferences("position", Context.MODE_PRIVATE);
         int currentPosition = currentPosPref.getInt("position", -1);
-        if (currentPosition != -1) {
+        if (currentPosition != -1 && currentPosition < videos.size()) {
             videoAdapter.playVideo(currentPosition);
+        } else {
+            Log.d(TAG, "Invalid position or no videos available.");
         }
     }
-
     private void loadVideos() {
         db.collection("videos")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {

@@ -35,6 +35,7 @@ color transparent
 color white
 dimen fab_margin
 drawable background_video
+drawable baseline_monetization_on_24
 drawable btn_add_shape
 drawable btn_normal_shape
 drawable btn_record
@@ -130,6 +131,7 @@ id FirstFragment
 id SecondFragment
 id action_FirstFragment_to_SecondFragment
 id action_SecondFragment_to_FirstFragment
+id apply_code_button
 id blank_notification
 id btnAddVideo
 id btnBackProfile
@@ -148,6 +150,7 @@ id btnOldPassword
 id btnOtp
 id btnPhone
 id btnProfile
+id btnReferandEarn
 id btnSave
 id btnSearch
 id btnSignInAgain
@@ -166,6 +169,7 @@ id button_record
 id button_second
 id button_stop
 id camera_frame
+id earned_points
 id edtComment
 id edtConfirmPassword
 id edtDescription
@@ -188,6 +192,7 @@ id fragWaiting
 id image_thumbnail
 id imbBack
 id imbBirthdate
+id imbPhone
 id imbPhoto
 id imbSelect
 id imbSendComment
@@ -215,6 +220,7 @@ id imv_follower_avatar
 id imv_following_avatar
 id info
 id item_search
+id join_button
 id layoutInput
 id layout_bio
 id layout_items
@@ -245,8 +251,13 @@ id progressBar
 id rcvVideoSummary
 id rcv_users
 id recycle_view_video_summary
+id referral_code
+id referral_code_input
+id referral_code_label
+id referral_title
 id rlOtp
 id searchView
+id share_button
 id share_options
 id space
 id tabs
@@ -315,6 +326,7 @@ layout activity_login_options
 layout activity_main
 layout activity_phone_signup
 layout activity_profile
+layout activity_referral
 layout activity_searching
 layout activity_settings_and_privacy
 layout activity_share_account
@@ -369,12 +381,14 @@ string error_birthdate
 string error_confirm
 string error_existedEmail
 string error_existedPhone
+string error_phone_number
 string error_signin
 string error_undefined
 string error_upload_video
 string error_username
 string error_verify
 string exist_username
+string firebase_database_url
 string first_fragment_label
 string following
 string for_you
@@ -402,6 +416,7 @@ string name_label
 string next
 string otp_sent
 string phone_label
+string phone_number_label
 string post
 string previous
 string profile

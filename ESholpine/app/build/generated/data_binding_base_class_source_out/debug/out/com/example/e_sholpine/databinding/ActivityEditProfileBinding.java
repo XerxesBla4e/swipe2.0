@@ -25,6 +25,9 @@ public final class ActivityEditProfileBinding implements ViewBinding {
   public final ImageButton imbBirthdate;
 
   @NonNull
+  public final ImageButton imbPhone;
+
+  @NonNull
   public final ImageButton imbPhoto;
 
   @NonNull
@@ -61,14 +64,15 @@ public final class ActivityEditProfileBinding implements ViewBinding {
   public final TextView tvUsername;
 
   private ActivityEditProfileBinding(@NonNull LinearLayout rootView,
-      @NonNull ImageButton imbBirthdate, @NonNull ImageButton imbPhoto,
-      @NonNull ImageButton imbSelect, @NonNull ImageButton imbUsername,
-      @NonNull ImageView imvBackToProfile, @NonNull LinearLayout llChangePhoto,
-      @NonNull LinearLayout llEditProfile, @NonNull LinearLayout llEmail,
-      @NonNull LinearLayout llPhone, @NonNull TextView tvBirthdate, @NonNull TextView tvEmail,
-      @NonNull TextView tvPhone, @NonNull TextView tvUsername) {
+      @NonNull ImageButton imbBirthdate, @NonNull ImageButton imbPhone,
+      @NonNull ImageButton imbPhoto, @NonNull ImageButton imbSelect,
+      @NonNull ImageButton imbUsername, @NonNull ImageView imvBackToProfile,
+      @NonNull LinearLayout llChangePhoto, @NonNull LinearLayout llEditProfile,
+      @NonNull LinearLayout llEmail, @NonNull LinearLayout llPhone, @NonNull TextView tvBirthdate,
+      @NonNull TextView tvEmail, @NonNull TextView tvPhone, @NonNull TextView tvUsername) {
     this.rootView = rootView;
     this.imbBirthdate = imbBirthdate;
+    this.imbPhone = imbPhone;
     this.imbPhoto = imbPhoto;
     this.imbSelect = imbSelect;
     this.imbUsername = imbUsername;
@@ -113,6 +117,12 @@ public final class ActivityEditProfileBinding implements ViewBinding {
       id = R.id.imbBirthdate;
       ImageButton imbBirthdate = ViewBindings.findChildViewById(rootView, id);
       if (imbBirthdate == null) {
+        break missingId;
+      }
+
+      id = R.id.imbPhone;
+      ImageButton imbPhone = ViewBindings.findChildViewById(rootView, id);
+      if (imbPhone == null) {
         break missingId;
       }
 
@@ -184,9 +194,9 @@ public final class ActivityEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityEditProfileBinding((LinearLayout) rootView, imbBirthdate, imbPhoto,
-          imbSelect, imbUsername, imvBackToProfile, llChangePhoto, llEditProfile, llEmail, llPhone,
-          tvBirthdate, tvEmail, tvPhone, tvUsername);
+      return new ActivityEditProfileBinding((LinearLayout) rootView, imbBirthdate, imbPhone,
+          imbPhoto, imbSelect, imbUsername, imvBackToProfile, llChangePhoto, llEditProfile, llEmail,
+          llPhone, tvBirthdate, tvEmail, tvPhone, tvUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,210 +1,206 @@
 [
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_waiting.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_waiting.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_navigation.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_first.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_first.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_edit_profile.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_edit_profile.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_follow.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_follow.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\notification_row.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\notification_row.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_phone_signup.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_phone_signup.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_signup_choice.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_signup_choice.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_navigation.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_navigation.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_phone_signup.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_phone_signup.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_camera.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_camera.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_sign_in_to_delete.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_sign_in_to_delete.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_followers_list.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_followers_list.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_email_signup.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_email_signup.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_searching.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_searching.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_second.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_second.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_edit_profile.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_edit_profile.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_delete_account.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_delete_account.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_profile.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_profile.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\share_video_layout.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\share_video_layout.xml"
     },
     {
-        "merged": "com.example.e_sholpine.app-mergeDebugResources-62:/layout/activity_change_password.xml",
-        "source": "com.example.e_sholpine.app-main-65:/layout/activity_change_password.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_share_account.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_share_account.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_inbox.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_inbox.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\video_container.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\video_container.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\notification_row.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\notification_row.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_profile.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_login_options.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_login_options.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_follow_list.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_follow_list.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_home_screen.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_home_screen.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_email_signin.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_email_signin.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_email_signup.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_email_signup.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_follow.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_follow.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_following_list.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_following_list.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_camera.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_camera.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_share_account.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_share_account.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\bottom_sheet_layout.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\bottom_sheet_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\bottom_sheet_layout.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\bottom_sheet_layout.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\item_user.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\item_user.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_description_video.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_description_video.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_first.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_first.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\layout_row_comment.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\layout_row_comment.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\share_account_layout.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\share_account_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\dialog_progress.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\dialog_progress.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\layout_row_comment.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\layout_row_comment.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_login_options.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_login_options.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_second.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_second.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_followers_list.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_followers_list.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_comment.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_comment.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_change_password.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_change_password.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_profile.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_profile.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_sign_in_to_delete.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_sign_in_to_delete.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_profile.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_profile.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\content_screen_splash.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\content_screen_splash.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_inbox.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_inbox.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_account_setting.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_account_setting.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\dialog_progress.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\dialog_progress.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_edit.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_edit.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_comment.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_comment.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_signup_choice.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_signup_choice.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_edit.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_edit.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_change_password.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_change_password.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\layout_follower_item.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\layout_follower_item.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_delete_video_setting.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_delete_video_setting.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_delete_video_setting.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_delete_video_setting.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\share_account_layout.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\share_account_layout.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_description_video.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_description_video.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_email_signin.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_email_signin.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_video.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_video.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\layout_follower_item.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\layout_follower_item.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_full_screen_avatar.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_full_screen_avatar.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_launcher.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_launcher.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_video_home_screen.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_video_home_screen.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\video_container.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\video_container.xml"
+        "merged": "com.example.e_sholpine.app-mergeDebugResources-64:/layout/activity_edit_profile.xml",
+        "source": "com.example.e_sholpine.app-main-67:/layout/activity_edit_profile.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_splash_screen.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_splash_screen.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_waiting.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_waiting.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_full_screen_avatar.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_full_screen_avatar.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\video_summary_item.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\video_summary_item.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_settings_and_privacy.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_settings_and_privacy.xml"
+        "merged": "com.example.e_sholpine.app-mergeDebugResources-64:/layout/activity_referral.xml",
+        "source": "com.example.e_sholpine.app-main-67:/layout/activity_referral.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\item_user.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\item_user.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_home_screen.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_home_screen.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_delete_account.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_delete_account.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_settings_and_privacy.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_settings_and_privacy.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\share_video_layout.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\share_video_layout.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_following_list.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\fragment_following_list.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_video_home_screen.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_video_home_screen.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_account_setting.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_account_setting.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_inbox.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_inbox.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_launcher.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_follow_list.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_follow_list.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_inbox.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_inbox.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\fragment_video.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\fragment_video.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\layout_following_item.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\layout_following_item.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\video_summary_item.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\video_summary_item.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_searching.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_searching.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_video.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_video.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_video.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_video.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\layout_following_item.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\layout_following_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-mergeDebugResources-62:\\layout\\activity_email_log_in.xml",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\8.0\\com.example.e_sholpine.app-main-65:\\layout\\activity_email_log_in.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_email_log_in.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_email_log_in.xml"
     }
 ]

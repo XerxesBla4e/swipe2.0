@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/referral_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refer &amp; Earn"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/referral_code_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter referral code (if any)"
+        android:layout_below="@id/referral_title"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
+
+    <Button
+        android:id="@+id/apply_code_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply Code"
+        android:layout_below="@id/referral_code_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
+
+    <TextView
+        android:id="@+id/referral_code_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Referral Code:"
+        android:layout_below="@id/apply_code_button"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/referral_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:textSize="18sp"
+        android:layout_below="@id/referral_code_label"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share Code"
+        android:layout_below="@id/referral_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/> <!-- Hidden by default, shown for joined users -->
+
+    <Button
+        android:id="@+id/join_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join Now"
+        android:layout_below="@id/referral_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
+
+    <TextView
+        android:id="@+id/earned_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Earnings: 0 UGX"
+        android:layout_below="@id/share_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

@@ -34,6 +34,9 @@ public final class ActivityHomeScreenBinding implements ViewBinding {
   public final Button btnProfile;
 
   @NonNull
+  public final Button btnReferandEarn;
+
+  @NonNull
   public final Button btnSearch;
 
   @NonNull
@@ -44,12 +47,14 @@ public final class ActivityHomeScreenBinding implements ViewBinding {
 
   private ActivityHomeScreenBinding(@NonNull LinearLayout rootView, @NonNull Button btnAddVideo,
       @NonNull Button btnHome, @NonNull Button btnInbox, @NonNull Button btnProfile,
-      @NonNull Button btnSearch, @NonNull FrameLayout mainFragment, @NonNull TextView tvVideo) {
+      @NonNull Button btnReferandEarn, @NonNull Button btnSearch, @NonNull FrameLayout mainFragment,
+      @NonNull TextView tvVideo) {
     this.rootView = rootView;
     this.btnAddVideo = btnAddVideo;
     this.btnHome = btnHome;
     this.btnInbox = btnInbox;
     this.btnProfile = btnProfile;
+    this.btnReferandEarn = btnReferandEarn;
     this.btnSearch = btnSearch;
     this.mainFragment = mainFragment;
     this.tvVideo = tvVideo;
@@ -106,6 +111,12 @@ public final class ActivityHomeScreenBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnReferandEarn;
+      Button btnReferandEarn = ViewBindings.findChildViewById(rootView, id);
+      if (btnReferandEarn == null) {
+        break missingId;
+      }
+
       id = R.id.btnSearch;
       Button btnSearch = ViewBindings.findChildViewById(rootView, id);
       if (btnSearch == null) {
@@ -125,7 +136,7 @@ public final class ActivityHomeScreenBinding implements ViewBinding {
       }
 
       return new ActivityHomeScreenBinding((LinearLayout) rootView, btnAddVideo, btnHome, btnInbox,
-          btnProfile, btnSearch, mainFragment, tvVideo);
+          btnProfile, btnReferandEarn, btnSearch, mainFragment, tvVideo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

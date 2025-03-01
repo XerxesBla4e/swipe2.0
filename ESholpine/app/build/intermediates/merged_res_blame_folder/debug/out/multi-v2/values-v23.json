@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-61:/values-v23/values-v23.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-63:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\ade2ae4a2fa3e6ece0a4d6c2887dec35\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\44731b293917c4bbcb6680d117721ace\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,26 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\1cad2a491dc48ff2352666c8afbda5ef\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,5,9,13,16,19,22,25,28,32",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
-                        "endLines": "4,8,12,15,18,21,24,27,31,35",
-                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
-                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
-                    },
-                    "to": {
-                        "startLines": "59,62,66,70,73,76,79,82,85,89",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3705,3921,4063,4224,4434,4641,4848,5051,5253,5518",
-                        "endLines": "61,65,69,72,75,78,81,84,88,92",
-                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
-                        "endOffsets": "3916,4058,4219,4429,4636,4843,5046,5248,5513,5786"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\1bb7fc7b17e54af5840766a4a821472e\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\9e2ba2220b5afc44e739fa8aeddbced7\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -53,7 +34,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\ESholpine\\app\\src\\main\\res\\values-v23\\themes.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\c4b036eae3ed29226cb0f47bca5e7264\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,9,13,16,19,22,25,28,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
+                        "endLines": "4,8,12,15,18,21,24,27,31,35",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
+                    },
+                    "to": {
+                        "startLines": "59,62,66,70,73,76,79,82,85,89",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3705,3921,4063,4224,4434,4641,4848,5051,5253,5518",
+                        "endLines": "61,65,69,72,75,78,81,84,88,92",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "3916,4058,4219,4429,4636,4843,5046,5248,5513,5786"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\USER\\AndroidStudioProjects\\ESholpine\\app\\src\\main\\res\\values-v23\\themes.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "2",

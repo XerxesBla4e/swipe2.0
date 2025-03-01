@@ -116,20 +116,14 @@ public class EditProfileActivity extends Activity implements View.OnClickListene
 
         if (user != null) {
             userId = user.getUid(); // Ensure userId is set
-            if (user.getPhoneNumber() != null && !user.getPhoneNumber().isEmpty()) {
-                llPhone.setVisibility(View.VISIBLE);
-                llEmail.setVisibility(View.GONE);
-            } else {
-                llPhone.setVisibility(View.GONE);
-                llEmail.setVisibility(View.VISIBLE);
-            }
+
             DocumentReference docRef = db.collection("users").document(userId);
             docRef.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         tvUsername.setText(getData(document.get("username")));
-                        tvPhone.setText(getData(document.get("phonenumber"))); // Matches PaymentActivity field
+                        tvPhone.setText(getData(document.get("phone"))); // Matches PaymentActivity field
                         tvEmail.setText(getData(document.get("email")));
                         tvBirthdate.setText(getData(document.get("birthdate")));
                         dialog.dismiss();

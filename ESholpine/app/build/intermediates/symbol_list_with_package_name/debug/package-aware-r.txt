@@ -92,7 +92,12 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array assume_strong_biometrics_models
+array crypto_fingerprint_fallback_prefixes
+array crypto_fingerprint_fallback_vendors
+array delay_showing_prompt_models
 array exo_controls_playback_speeds
+array hide_fingerprint_instantly_prefixes
 attr SharedValue
 attr SharedValueId
 attr action
@@ -635,6 +640,7 @@ attr font
 attr fontFamily
 attr fontProviderAuthority
 attr fontProviderCerts
+attr fontProviderFallbackQuery
 attr fontProviderFetchStrategy
 attr fontProviderFetchTimeout
 attr fontProviderPackage
@@ -1482,6 +1488,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color biometric_error_color
 color black
 color black_overlay
 color bright_foreground_disabled_material_dark
@@ -2454,6 +2461,7 @@ dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
+dimen fingerprint_icon_size
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -3193,6 +3201,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable background_video
+drawable baseline_monetization_on_24
 drawable btn_add_shape
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3316,6 +3325,8 @@ drawable exo_styled_controls_speed
 drawable exo_styled_controls_subtitle_off
 drawable exo_styled_controls_subtitle_on
 drawable exo_styled_controls_vr
+drawable fingerprint_dialog_error
+drawable fingerprint_dialog_fp_icon
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient_background
@@ -3580,11 +3591,13 @@ id aligned
 id all
 id allStates
 id always
+id androidx_credential_pendingCredentialRequest
 id androidx_window_activity_scope
 id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id apply_code_button
 id arc
 id asConfigured
 id async
@@ -3628,6 +3641,7 @@ id btnOldPassword
 id btnOtp
 id btnPhone
 id btnProfile
+id btnReferandEarn
 id btnSave
 id btnSearch
 id btnSignInAgain
@@ -3716,6 +3730,7 @@ id dragRight
 id dragStart
 id dragUp
 id dropdown_menu
+id earned_points
 id easeIn
 id easeInOut
 id easeOut
@@ -3799,6 +3814,10 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id fingerprint_description
+id fingerprint_error
+id fingerprint_icon
+id fingerprint_subtitle
 id fit
 id fitCenter
 id fitEnd
@@ -3848,6 +3867,7 @@ id image
 id image_thumbnail
 id imbBack
 id imbBirthdate
+id imbPhone
 id imbPhoto
 id imbSelect
 id imbSendComment
@@ -3883,6 +3903,7 @@ id is_pooling_container_tag
 id italic
 id item_search
 id item_touch_helper_previous_elevation
+id join_button
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -4052,6 +4073,10 @@ id rcvVideoSummary
 id rcv_users
 id rectangles
 id recycle_view_video_summary
+id referral_code
+id referral_code_input
+id referral_code_label
+id referral_title
 id report_drawn
 id reverseSawtooth
 id right
@@ -4086,6 +4111,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id share_button
 id share_options
 id sharedValueSet
 id sharedValueUnset
@@ -4393,6 +4419,7 @@ layout activity_login_options
 layout activity_main
 layout activity_phone_signup
 layout activity_profile
+layout activity_referral
 layout activity_searching
 layout activity_settings_and_privacy
 layout activity_share_account
@@ -4431,6 +4458,7 @@ layout exo_styled_settings_list
 layout exo_styled_settings_list_item
 layout exo_styled_sub_settings_list_item
 layout exo_track_selection_dialog
+layout fingerprint_dialog_layout
 layout fragment_first
 layout fragment_followers_list
 layout fragment_following_list
@@ -4607,7 +4635,9 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string confirm_device_credential_password
 string copy_toast_msg
+string default_error_msg
 string default_web_client_id
 string dest_title
 string dummy_button
@@ -4623,6 +4653,7 @@ string error_confirm
 string error_existedEmail
 string error_existedPhone
 string error_icon_content_description
+string error_phone_number
 string error_signin
 string error_undefined
 string error_upload_video
@@ -4689,11 +4720,22 @@ string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
 string fcm_fallback_notification_channel_label
+string fingerprint_dialog_touch_sensor
+string fingerprint_error_hw_not_available
+string fingerprint_error_hw_not_present
+string fingerprint_error_lockout
+string fingerprint_error_no_fingerprints
+string fingerprint_error_user_canceled
+string fingerprint_not_recognized
+string firebase_database_url
 string first_fragment_label
 string following
 string for_you
 string friends
 string gcm_defaultSenderId
+string generic_error_no_device_credential
+string generic_error_no_keyguard
+string generic_error_user_canceled
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
@@ -4826,6 +4868,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string phone_label
+string phone_number_label
 string post
 string previous
 string profile
@@ -6098,7 +6141,7 @@ styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavio
 styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing
-styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery fontProviderSystemFontFamily
+styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFallbackQuery fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery fontProviderSystemFontFamily
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable Fragment android_name android_id android_tag

@@ -17,7 +17,7 @@ public class Validator {
     private static Validator instance = null;
     private Pattern pattern;
     private Matcher matcher;
-    private final String regexPhone = "^(0|\\+256)\\d{9}$";
+    private final String regexPhone = "^(0|256)\\d{9}$";
 //    private final String regexEmail = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
     private final String regexEmail = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{3,}$";
     private  final  String regexUsername = "^[a-zA-Z_][a-zA-Z_0-9]{2,}$";

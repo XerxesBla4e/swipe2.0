@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.TikTokCloneProject" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.TikTokCloneProject" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/tiktok_black</item>
+        <item name="colorPrimaryVariant">@color/tiktok_white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/tiktok_red</item>
+        <item name="colorSecondaryVariant">@color/tiktok_red</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <item name="android:statusBarColor">@color/tiktok_black</item>
+        <item name="android:navigationBarColor">@color/tiktok_black</item>
+        
+    </style>
+    <style name="ThemeOverlay.TikTokCloneProject.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
+</resources>
