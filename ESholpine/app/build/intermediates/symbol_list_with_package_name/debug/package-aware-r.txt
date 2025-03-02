@@ -4644,6 +4644,7 @@ string dummy_button
 string dummy_content
 string edit
 string email_label
+string enter_referral_code_if_any
 string error_Otp
 string error_Password
 string error_PhoneAuth

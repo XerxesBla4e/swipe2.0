@@ -37,6 +37,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="edit">Edit</string>
     <string name="email_label">Email:</string>
+    <string name="enter_referral_code_if_any">Enter referral code (if any)</string>
     <string name="error_Otp">Please 6 digits OTP</string>
     <string name="error_Password">Password only include alphabet character and number</string>
     <string name="error_PhoneAuth">%1$s is invalid</string>

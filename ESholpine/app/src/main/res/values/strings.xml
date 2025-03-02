@@ -111,5 +111,6 @@
     </string>
     <string name="error_phone_number">enter phone number</string>
     <string name="phone_number_label">"Enter phone number "</string>
+    <string name="enter_referral_code_if_any">Enter referral code (if any)</string>
     <!--   //////////////////////////////////////////////////////////   -->
 </resources>

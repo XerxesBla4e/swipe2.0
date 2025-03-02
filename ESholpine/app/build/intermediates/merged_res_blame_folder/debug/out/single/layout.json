@@ -12,12 +12,12 @@
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\notification_row.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_signup_choice.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_signup_choice.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_phone_signup.xml",
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_phone_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_signup_choice.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_signup_choice.xml"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_sign_in_to_delete.xml",
@@ -64,12 +64,12 @@
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_follow.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_camera.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_camera.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\bottom_sheet_layout.xml",
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_camera.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_camera.xml"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\item_user.xml",
@@ -148,8 +148,8 @@
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_video_home_screen.xml"
     },
     {
-        "merged": "com.example.e_sholpine.app-mergeDebugResources-64:/layout/activity_edit_profile.xml",
-        "source": "com.example.e_sholpine.app-main-67:/layout/activity_edit_profile.xml"
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\activity_referral.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_referral.xml"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-mergeDebugResources-64:\\layout\\fragment_waiting.xml",

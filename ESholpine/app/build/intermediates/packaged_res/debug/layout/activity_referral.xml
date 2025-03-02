@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="?android:attr/colorBackground">
 
     <TextView
         android:id="@+id/referral_title"
@@ -11,35 +11,38 @@
         android:layout_height="wrap_content"
         android:text="Refer &amp; Earn"
         android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/referral_code_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter referral code (if any)"
-        android:layout_below="@id/referral_title"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
-
+        android:hint="@string/enter_referral_code_if_any"
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/referral_title"
+    android:layout_marginTop="20dp"
+    android:visibility="gone"/>
     <Button
         android:id="@+id/apply_code_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Apply Code"
-        android:layout_below="@id/referral_code_input"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/referral_code_input"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp"
+    android:visibility="gone"/>
 
     <TextView
         android:id="@+id/referral_code_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Referral Code:"
-        android:layout_below="@id/apply_code_button"
-        android:layout_marginTop="20dp"/>
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/apply_code_button"
+    android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/referral_code"
@@ -47,36 +50,44 @@
         android:layout_height="wrap_content"
         android:text="Loading..."
         android:textSize="18sp"
-        android:layout_below="@id/referral_code_label"
-        android:layout_marginTop="10dp"/>
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/referral_code_label"
+    android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/share_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Share Code"
-        android:layout_below="@id/referral_code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"/> <!-- Hidden by default, shown for joined users -->
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/referral_code"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:visibility="gone"/>
 
     <Button
         android:id="@+id/join_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Join Now"
-        android:layout_below="@id/referral_code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"/> <!-- Hidden by default, shown for non-joined users -->
+        android:textColor="?android:attr/textColorPrimary"
+    android:layout_below="@id/referral_code"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:visibility="gone"/>
 
     <TextView
         android:id="@+id/earned_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/referral_code"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="100dp"
         android:text="Earnings: 0 UGX"
-        android:layout_below="@id/share_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorPrimary" />
 
 </RelativeLayout>

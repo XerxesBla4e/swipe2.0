@@ -53,7 +53,7 @@ public class ReferralActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser user;
-    private TextView referralCodeText;
+    private TextView referralCodeText, earningsText; // Added earningsText
     private Button shareButton, joinButton;
     private EditText referralCodeInput;
     private Button applyCodeButton;
@@ -72,6 +72,7 @@ public class ReferralActivity extends AppCompatActivity {
         user = mAuth.getCurrentUser();
 
         referralCodeText = findViewById(R.id.referral_code);
+        earningsText = findViewById(R.id.earned_points); // Initialize earningsText
         shareButton = findViewById(R.id.share_button);
         joinButton = findViewById(R.id.join_button);
         referralCodeInput = findViewById(R.id.referral_code_input);
@@ -87,7 +88,6 @@ public class ReferralActivity extends AppCompatActivity {
         userRef = db.collection("users").document(userId);
         getUserPhoneNumber();
 
-        // Handle referral code from intent (deep link or manual share)
         String referralCodeFromIntent = getIntent().getStringExtra("referralCode");
         if (referralCodeFromIntent != null) {
             referralCodeInput.setText(referralCodeFromIntent);
@@ -165,8 +165,19 @@ public class ReferralActivity extends AppCompatActivity {
                         joinButton.setVisibility(View.GONE);
                         referralCodeInput.setVisibility(View.GONE);
                         applyCodeButton.setVisibility(View.GONE);
+                        // Fetch and display earnings
+                        db.collection("referrals").document(userId).get()
+                                .addOnSuccessListener(doc -> {
+                                    Long earnings = doc.getLong("earnings");
+                                    earningsText.setText("Earnings: " + (earnings != null ? earnings : 0) + " UGX");
+                                })
+                                .addOnFailureListener(e -> {
+                                    Log.e(TAG, "Error fetching earnings: " + e.getMessage());
+                                    earningsText.setText("Earnings: 0 UGX");
+                                });
                     } else {
                         referralCodeText.setText("Enter a referral code or join to get yours!");
+                        earningsText.setText("Earnings: 0 UGX"); // No earnings until joined
                         shareButton.setVisibility(View.GONE);
                         joinButton.setVisibility(View.VISIBLE);
                         referralCodeInput.setVisibility(View.VISIBLE);
@@ -216,26 +227,26 @@ public class ReferralActivity extends AppCompatActivity {
             return;
         }
 
+        if (!hasReadSmsPermission()) {
+            requestReadSmsPermission();
+            return;
+        }
+
         new AlertDialog.Builder(this)
                 .setTitle("Join Referral System")
-                .setMessage("Join the referral system for 3,000 UGX to start inviting friends and earn 1,000 UGX per referral!")
-                .setPositiveButton("Pay Now", (dialog, which) -> {
-                    if (hasReadSmsPermission()) {
-                        processZengaPayPayment(userId);
-                    } else {
-                        requestReadSmsPermission();
-                    }
-                })
+                .setMessage("Join the referral system for 3,000 UGX to start inviting friends and earn 1,500 UGX per referral!")
+                .setPositiveButton("Pay Now", (dialog, which) -> processZengaPayPayment(userId))
                 .setNegativeButton("Later", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
     private void processZengaPayPayment(String userId) {
-        Log.d(TAG, "Phone number before payment: " + phoneNumber);
+        Log.d(TAG, "Starting payment process for userId: " + userId + " with phone: " + phoneNumber);
         if (phoneNumber == null || phoneNumber.isEmpty()) {
             Toast.makeText(this, "Phone number is missing, cannot process payment", Toast.LENGTH_SHORT).show();
             return;
         }
+
         String uniqueExternalReference = String.valueOf(System.currentTimeMillis());
         ZengaPayRequest request = new ZengaPayRequest(phoneNumber, PAYMENT_AMOUNT, uniqueExternalReference, "Referral Join - " + uniqueExternalReference, false);
         Log.d(TAG, "Payment Request: phone=" + phoneNumber + ", amount=" + PAYMENT_AMOUNT + ", ref=" + uniqueExternalReference);
@@ -249,11 +260,18 @@ public class ReferralActivity extends AppCompatActivity {
                     ZengaPayResponse zengaPayResponse = response.body();
                     Log.d(TAG, "Payment Status: " + zengaPayResponse.getStatus() + ", Message: " + zengaPayResponse.getMessage());
                     if ("accepted".equalsIgnoreCase(zengaPayResponse.getStatus())) {
-                        Log.d(TAG, "Payment accepted by API, waiting for SMS");
-                        Toast.makeText(ReferralActivity.this, "Payment processed successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ReferralActivity.this, "Payment request sent. Please enter your PIN on your phone.", Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "Payment accepted by API, initiating SMS verification");
                         checkForPaymentConfirmation(userId);
                     } else {
-                        Toast.makeText(ReferralActivity.this, "Payment failed: " + zengaPayResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        String failureMessage = zengaPayResponse.getMessage() != null ? zengaPayResponse.getMessage().toLowerCase() : "";
+                        if (failureMessage.contains("insufficient") || failureMessage.contains("balance")) {
+                            Toast.makeText(ReferralActivity.this, "Insufficient funds. Please ensure you have at least 3,000 UGX in your mobile money account.", Toast.LENGTH_LONG).show();
+                            Log.e(TAG, "Payment failed due to insufficient funds: " + failureMessage);
+                        } else {
+                            Toast.makeText(ReferralActivity.this, "Payment failed: " + zengaPayResponse.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.e(TAG, "Payment failed: " + zengaPayResponse.getStatus() + " - " + zengaPayResponse.getMessage());
+                        }
                     }
                 } else {
                     String errorMsg = "Payment processing failed";
@@ -280,20 +298,23 @@ public class ReferralActivity extends AppCompatActivity {
     }
 
     private void checkForPaymentConfirmation(String userId) {
+        Log.d(TAG, "Starting SMS verification for payment");
         showProgressDialog("Please complete payment on your phone...");
         new Thread(() -> {
-            final int MAX_WAIT_TIME_SECONDS = 180; // 3 minutes timeout
-            final int CHECK_INTERVAL_MS = 5000; // Check every 5 seconds
+            final int MAX_WAIT_TIME_SECONDS = 60;
+            final int CHECK_INTERVAL_MS = 5000;
             long startTime = System.currentTimeMillis();
             final boolean[] paymentVerified = {false};
 
             while (!paymentVerified[0] && (System.currentTimeMillis() - startTime) < MAX_WAIT_TIME_SECONDS * 1000) {
                 paymentVerified[0] = checkSmsForPayment();
                 if (paymentVerified[0]) {
+                    Log.d(TAG, "Payment verified via SMS");
                     break;
                 }
                 try {
                     Thread.sleep(CHECK_INTERVAL_MS);
+                    Log.d(TAG, "Checking SMS... Elapsed time: " + (System.currentTimeMillis() - startTime) / 1000 + " seconds");
                 } catch (InterruptedException e) {
                     Log.e(TAG, "SMS polling interrupted: " + e.getMessage());
                     break;
@@ -305,15 +326,67 @@ public class ReferralActivity extends AppCompatActivity {
                 if (paymentVerified[0]) {
                     Toast.makeText(this, "Payment verified successfully.", Toast.LENGTH_SHORT).show();
                     updateReferralStatusAndGenerateCode(userId);
+                    markReferredUserAsPaid(userId);
                 } else {
-                    Toast.makeText(this, "Payment verification failed. Please ensure you entered your PIN.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Payment verification failed. Please ensure you have minimum balance of 3200 on line", Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Payment verification timed out after " + MAX_WAIT_TIME_SECONDS + " seconds");
                 }
             });
         }).start();
     }
 
+    private void markReferredUserAsPaid(String paidUserId) {
+        db.collection("referrals")
+                .whereArrayContains("referredUsers", Map.of("userId", paidUserId, "paid", false))
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    if (!querySnapshot.isEmpty()) {
+                        DocumentSnapshot referrerDoc = querySnapshot.getDocuments().get(0);
+                        String referrerId = referrerDoc.getString("userId");
+                        Log.d(TAG, "Found referrer " + referrerId + " for paid user " + paidUserId);
+
+                        assert referrerId != null;
+                        DocumentReference referrerRef = db.collection("referrals").document(referrerId);
+                        referrerRef.get().addOnSuccessListener(doc -> {
+                            ArrayList<Map<String, Object>> referredUsers = (ArrayList<Map<String, Object>>) doc.get("referredUsers");
+                            if (referredUsers != null) {
+                                for (int i = 0; i < referredUsers.size(); i++) {
+                                    Map<String, Object> userEntry = referredUsers.get(i);
+                                    if (paidUserId.equals(userEntry.get("userId")) && Boolean.FALSE.equals(userEntry.get("paid"))) {
+                                        userEntry.put("paid", true);
+                                        referredUsers.set(i, userEntry);
+                                        referrerRef.update("referredUsers", referredUsers)
+                                                .addOnSuccessListener(aVoid -> {
+                                                    Log.d(TAG, "Marked " + paidUserId + " as paid for referrer " + referrerId);
+                                                    // Increment earnings by 1500
+                                                    referrerRef.update("earnings", FieldValue.increment(1500))
+                                                            .addOnSuccessListener(aVoid1 -> {
+                                                                Log.d(TAG, "Incremented earnings by 1500 for " + referrerId);
+                                                                // Update UI with new earnings
+                                                                referrerRef.get().addOnSuccessListener(updatedDoc -> {
+                                                                    Long earnings = updatedDoc.getLong("earnings");
+                                                                    earningsText.setText("Earnings: " + (earnings != null ? earnings : 0) + " UGX");
+                                                                });
+                                                            })
+                                                            .addOnFailureListener(e -> Log.e(TAG, "Failed to increment earnings: " + e.getMessage()));
+                                                })
+                                                .addOnFailureListener(e -> Log.e(TAG, "Failed to mark user as paid: " + e.getMessage()));
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        Log.d(TAG, "No referrer found for user " + paidUserId + " or already marked as paid");
+                    }
+                })
+                .addOnFailureListener(e -> Log.e(TAG, "Error finding referrer for paid user: " + e.getMessage()));
+    }
+
     private boolean hasReadSmsPermission() {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED;
+        boolean hasPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED;
+        Log.d(TAG, "SMS Permission Status: " + hasPermission);
+        return hasPermission;
     }
 
     private void requestReadSmsPermission() {
@@ -325,6 +398,7 @@ public class ReferralActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == READ_SMS_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "SMS permission granted, proceeding with payment");
                 processZengaPayPayment(userId);
             } else {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_SMS)) {
@@ -363,7 +437,7 @@ public class ReferralActivity extends AppCompatActivity {
         String selection = Telephony.Sms.BODY + " LIKE ? OR " + Telephony.Sms.BODY + " LIKE ? OR " + Telephony.Sms.BODY + " LIKE ?";
         String[] selectionArgs = {"%deducted%", "%ZENGAPAY%", "%Charge%"};
         long currentTime = System.currentTimeMillis();
-        long recentThreshold = 5 * 60 * 1000; // 5 minutes
+        long recentThreshold = 5 * 60 * 1000;
 
         Cursor cursor = contentResolver.query(smsUri, projection, selection, selectionArgs, Telephony.Sms.DATE + " DESC");
         if (cursor == null) {
@@ -409,12 +483,14 @@ public class ReferralActivity extends AppCompatActivity {
         referralData.put("userId", userId);
         referralData.put("referralCode", referralCode);
         referralData.put("referredUsers", new ArrayList<Map<String, Object>>());
+        referralData.put("earnings", 0); // Initialize earnings field
 
         db.collection("referrals").document(userId)
                 .set(referralData)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Your referral code: " + referralCode, Toast.LENGTH_LONG).show();
                     referralCodeText.setText(referralCode);
+                    earningsText.setText("Earnings: 0 UGX"); // Initial display
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to generate referral code", Toast.LENGTH_SHORT).show());
     }
@@ -450,7 +526,11 @@ public class ReferralActivity extends AppCompatActivity {
                                     String referrerId = querySnapshot.getDocuments().get(0).getString("userId");
                                     if (referrerId != null && !referrerId.equals(userId)) {
                                         DocumentReference referrerRef = db.collection("referrals").document(referrerId);
-                                        referrerRef.update("referredUsers", FieldValue.arrayUnion(Map.of("userId", userId, "timestamp", FieldValue.serverTimestamp())))
+                                        Map<String, Object> referralEntry = new HashMap<>();
+                                        referralEntry.put("userId", userId);
+                                        referralEntry.put("timestamp", FieldValue.serverTimestamp());
+                                        referralEntry.put("paid", false);
+                                        referrerRef.update("referredUsers", FieldValue.arrayUnion(referralEntry))
                                                 .addOnSuccessListener(aVoid -> {
                                                     Toast.makeText(this, "Referral code applied successfully!", Toast.LENGTH_SHORT).show();
                                                     referralCodeInput.setText("");
@@ -488,7 +568,11 @@ public class ReferralActivity extends AppCompatActivity {
                                     String referrerId = querySnapshot.getDocuments().get(0).getString("userId");
                                     if (referrerId != null && !referrerId.equals(userId)) {
                                         DocumentReference referrerRef = db.collection("referrals").document(referrerId);
-                                        referrerRef.update("referredUsers", FieldValue.arrayUnion(Map.of("userId", userId, "timestamp", FieldValue.serverTimestamp())))
+                                        Map<String, Object> referralEntry = new HashMap<>();
+                                        referralEntry.put("userId", userId);
+                                        referralEntry.put("timestamp", FieldValue.serverTimestamp());
+                                        referralEntry.put("paid", false);
+                                        referrerRef.update("referredUsers", FieldValue.arrayUnion(referralEntry))
                                                 .addOnSuccessListener(aVoid -> {
                                                     Toast.makeText(this, "Referral code applied successfully!", Toast.LENGTH_SHORT).show();
                                                     referralCodeInput.setText("");

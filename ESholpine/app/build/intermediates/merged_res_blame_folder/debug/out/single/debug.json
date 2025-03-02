@@ -4,12 +4,16 @@
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\ic_more_20.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\layout_activity_referral.xml.flat",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_referral.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_record_button.xml.flat",
@@ -24,12 +28,12 @@
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\btn_record.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_ic_person_pin.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\ic_person_pin.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_swipe.png.flat",
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\swipe.png"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_ic_person_pin.xml.flat",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\drawable\\ic_person_pin.xml"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
@@ -98,10 +102,6 @@
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\layout_activity_follow.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-main-67:\\layout\\activity_follow.xml"
-    },
-    {
-        "merged": "com.example.e_sholpine.app-merged_res-65:/layout_activity_edit_profile.xml.flat",
-        "source": "com.example.e_sholpine.app-main-67:/layout/activity_edit_profile.xml"
     },
     {
         "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.5\\com.example.e_sholpine.app-merged_res-65:\\drawable_btn_normal_shape.xml.flat",
