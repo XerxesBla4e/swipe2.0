@@ -120,7 +120,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         rcvVideoSummary.addItemDecoration(new SearchFragment.GridSpacingItemDecoration(3, 10, true));
         rcvVideoSummary.setAdapter(videoSummaryAdapter);
 
-        imbBackToHome.setOnClickListener(this);
+//        imbBackToHome.setOnClickListener(this);
         tvSubmitSearch.setOnClickListener(this);
 
         searchView = (SearchView) layout.findViewById(R.id.searchView);
@@ -221,11 +221,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == imbBackToHome.getId()) {
+        /*if(view.getId() == imbBackToHome.getId()) {
             Intent intent = new Intent(context, HomeScreenActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-        }
+        }*/
         if(view.getId() == tvSubmitSearch.getId()) {
             searchView.clearFocus();
         }

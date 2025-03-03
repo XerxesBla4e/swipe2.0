@@ -25,8 +25,8 @@
     </style>
 
     <style name="ThemeOverlay.TikTokCloneProject.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
-        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+        <item name="fullscreenBackgroundColor">@color/black</item>
+        <item name="fullscreenTextColor">@color/tiktok_white</item>
     </style>
 
     <style name="DialogAnimation">
@@ -35,7 +35,7 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.TikTokCloneProject">
-        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowBackground">@drawable/swipe</item>
     </style>
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">

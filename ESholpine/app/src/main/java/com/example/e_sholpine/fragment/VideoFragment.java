@@ -1,9 +1,6 @@
 package com.example.e_sholpine.fragment;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,7 +19,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.e_sholpine.R;
 import com.example.e_sholpine.adapters.VideoAdapter;
-
 import com.example.e_sholpine.model.Video;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,18 +33,16 @@ import java.util.ArrayList;
 
 public class VideoFragment extends Fragment implements View.OnClickListener {
     private Context context = null;
-
-    private TextView tvVideo; // DE TEST. Sau nay sua thanh clip de xem
+    private TextView tvVideo;
     private ViewPager2 viewPager2;
     ArrayList<Video> videos;
     public VideoAdapter videoAdapter;
-
     FirebaseAuth mAuth;
     FirebaseUser user;
     FirebaseFirestore db;
-
     StorageReference storageRef;
     Uri videoUri;
+    private static final String TAG = "VideoFragment";
 
     public static VideoFragment newInstance(String strArg) {
         VideoFragment fragment = new VideoFragment();
@@ -62,9 +56,8 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            context = getActivity(); // use this reference to invoke main callbacks
-        }
-        catch (IllegalStateException e) {
+            context = getActivity();
+        } catch (IllegalStateException e) {
             throw new IllegalStateException();
         }
     }
@@ -72,26 +65,18 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-
+        pauseVideo();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-// inflate res/layout_blue.xml to make GUI holding a TextView and a ListView
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_video, null);
-        tvVideo = (TextView) layout.findViewById(R.id.tvVideo);
-
-
-
-
+        tvVideo = layout.findViewById(R.id.tvVideo);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
 
-
-
-/////////////////////////////////////////////////////////////////////////
         viewPager2 = layout.findViewById(R.id.viewPager);
         videos = new ArrayList<>();
         videoAdapter = new VideoAdapter(context, videos);
@@ -101,7 +86,6 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-
             }
 
             @Override
@@ -122,14 +106,12 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
         viewPager2.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
             @Override
             public void onViewAttachedToWindow(View view) {
-
             }
 
             @Override
             public void onViewDetachedFromWindow(View view) {
-//                Log.i("position", viewPager2.getVerticalScrollbarPosition() + "");
-               videoAdapter.pauseVideo(videoAdapter.getCurrentPosition());
-
+                videoAdapter.stopVideo(videoAdapter.getCurrentPosition());
+                Log.d(TAG, "View detached, stopping video at position: " + videoAdapter.getCurrentPosition());
             }
         });
 
@@ -137,43 +119,54 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
         return layout;
     }
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
+        continueVideo();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        stopVideo();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        stopVideo();
+        viewPager2.setAdapter(null);
     }
 
     @Override
     public void onClick(View view) {
-
-
-    }//on click
+    }
 
     public void pauseVideo() {
         SharedPreferences currentPosPref = context.getSharedPreferences("position", Context.MODE_PRIVATE);
         SharedPreferences.Editor positionEditor = currentPosPref.edit();
         int currentPosition = videoAdapter.getCurrentPosition();
-        positionEditor.putInt("position", currentPosition);
         videoAdapter.pauseVideo(currentPosition);
+        positionEditor.putInt("position", currentPosition);
         positionEditor.apply();
+        Log.d(TAG, "Paused video at position: " + currentPosition);
     }
-
 
     public void continueVideo() {
-        if (context == null) {
-            Log.e(TAG, "Context is null. Fragment might not be attached to an activity.");
-            return;
-        }
-        if (videos == null || videos.isEmpty()) {
-            Log.d(TAG, "No videos available to play.");
-            return;
-        }
         SharedPreferences currentPosPref = context.getSharedPreferences("position", Context.MODE_PRIVATE);
         int currentPosition = currentPosPref.getInt("position", -1);
-        if (currentPosition != -1 && currentPosition < videos.size()) {
+        if (currentPosition != -1) {
             videoAdapter.playVideo(currentPosition);
-        } else {
-            Log.d(TAG, "Invalid position or no videos available.");
+            Log.d(TAG, "Continued video at position: " + currentPosition);
         }
     }
+
+    public void stopVideo() {
+        int currentPosition = videoAdapter.getCurrentPosition();
+        videoAdapter.stopVideo(currentPosition);
+        Log.d(TAG, "Stopped video at position: " + currentPosition);
+    }
+
     private void loadVideos() {
         db.collection("videos")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -200,9 +193,7 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
                                     break;
                             }
                         }
-
                     }
                 });
     }
-
 }

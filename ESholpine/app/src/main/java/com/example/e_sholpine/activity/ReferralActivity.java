@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class ReferralActivity extends AppCompatActivity {
 
-    private static final int PAYMENT_AMOUNT = 3000;
+    private static final int PAYMENT_AMOUNT = 500;
     private static final int READ_SMS_PERMISSION_REQUEST_CODE = 101;
     private static final int EDIT_PROFILE_REQUEST_CODE = 1;
     private static final String TAG = "ReferralActivity";
@@ -301,7 +301,7 @@ public class ReferralActivity extends AppCompatActivity {
         Log.d(TAG, "Starting SMS verification for payment");
         showProgressDialog("Please complete payment on your phone...");
         new Thread(() -> {
-            final int MAX_WAIT_TIME_SECONDS = 60;
+            final int MAX_WAIT_TIME_SECONDS = 120;
             final int CHECK_INTERVAL_MS = 5000;
             long startTime = System.currentTimeMillis();
             final boolean[] paymentVerified = {false};

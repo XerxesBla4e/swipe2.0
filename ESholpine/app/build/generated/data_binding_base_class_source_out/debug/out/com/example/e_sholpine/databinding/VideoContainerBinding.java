@@ -30,6 +30,9 @@ public final class VideoContainerBinding implements ViewBinding {
   public final ImageView imvAvatar;
 
   @NonNull
+  public final ImageView imvDownload;
+
+  @NonNull
   public final ImageView imvMore;
 
   @NonNull
@@ -63,14 +66,15 @@ public final class VideoContainerBinding implements ViewBinding {
   public final StyledPlayerView videoView;
 
   private VideoContainerBinding(@NonNull RelativeLayout rootView, @NonNull ImageView imvAppear,
-      @NonNull ImageView imvAvatar, @NonNull ImageView imvMore, @NonNull ImageView imvPause,
-      @NonNull ImageView imvShare, @NonNull ImageView imvVolume, @NonNull LinearLayout linearLayout,
-      @NonNull ProgressBar pgbWait, @NonNull TextView tvComment, @NonNull TextView tvFavorites,
-      @NonNull TextView tvTitle, @NonNull TextView txvDescription,
+      @NonNull ImageView imvAvatar, @NonNull ImageView imvDownload, @NonNull ImageView imvMore,
+      @NonNull ImageView imvPause, @NonNull ImageView imvShare, @NonNull ImageView imvVolume,
+      @NonNull LinearLayout linearLayout, @NonNull ProgressBar pgbWait, @NonNull TextView tvComment,
+      @NonNull TextView tvFavorites, @NonNull TextView tvTitle, @NonNull TextView txvDescription,
       @NonNull StyledPlayerView videoView) {
     this.rootView = rootView;
     this.imvAppear = imvAppear;
     this.imvAvatar = imvAvatar;
+    this.imvDownload = imvDownload;
     this.imvMore = imvMore;
     this.imvPause = imvPause;
     this.imvShare = imvShare;
@@ -120,6 +124,12 @@ public final class VideoContainerBinding implements ViewBinding {
       id = R.id.imvAvatar;
       ImageView imvAvatar = ViewBindings.findChildViewById(rootView, id);
       if (imvAvatar == null) {
+        break missingId;
+      }
+
+      id = R.id.imvDownload;
+      ImageView imvDownload = ViewBindings.findChildViewById(rootView, id);
+      if (imvDownload == null) {
         break missingId;
       }
 
@@ -189,9 +199,9 @@ public final class VideoContainerBinding implements ViewBinding {
         break missingId;
       }
 
-      return new VideoContainerBinding((RelativeLayout) rootView, imvAppear, imvAvatar, imvMore,
-          imvPause, imvShare, imvVolume, linearLayout, pgbWait, tvComment, tvFavorites, tvTitle,
-          txvDescription, videoView);
+      return new VideoContainerBinding((RelativeLayout) rootView, imvAppear, imvAvatar, imvDownload,
+          imvMore, imvPause, imvShare, imvVolume, linearLayout, pgbWait, tvComment, tvFavorites,
+          tvTitle, txvDescription, videoView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

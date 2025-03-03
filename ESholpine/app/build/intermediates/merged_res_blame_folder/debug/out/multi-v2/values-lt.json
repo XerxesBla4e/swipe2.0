@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-63:/values-lt/values-lt.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-71:/values-lt/values-lt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\619e3af65f8ec730cbf290310174aff8\\transformed\\biometric-1.1.0\\res\\values-lt\\values-lt.xml",

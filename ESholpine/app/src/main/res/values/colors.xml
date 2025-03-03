@@ -10,7 +10,7 @@
     <color name="tiktok_white">#FFFFFF</color>
     <color name="tiktok_black">#000000</color>
     <color name="tiktok_blue">#63C7CF</color>
-    <color name="tiktok_red">#ED2156</color>
+    <color name="tiktok_red">#FF5722</color>
     <color name="tiktok_grey">#828282</color>
     <color name="hint">#FF7F8487</color>
     <color name="light_blue_600">#FF039BE5</color>
@@ -19,5 +19,7 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="transparent">#00000000</color>
-    <color name="background">#fff6f6f6</color>
+    <color name="background">#000000</color>
+    <color name="ripple_color">#1F000000</color>
+    <color name="divider_color">#E0E0E0</color>
 </resources>

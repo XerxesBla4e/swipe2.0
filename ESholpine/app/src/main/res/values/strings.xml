@@ -109,8 +109,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="Share">Share Via</string>
+    <string name="error_phone">Enter Correct Phone number</string>
+
     <string name="error_phone_number">enter phone number</string>
     <string name="phone_number_label">"Enter phone number "</string>
     <string name="enter_referral_code_if_any">Enter referral code (if any)</string>
-    <!--   //////////////////////////////////////////////////////////   -->
+
 </resources>

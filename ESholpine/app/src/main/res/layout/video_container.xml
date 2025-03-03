@@ -207,6 +207,17 @@
                 android:padding="2dp"
                 android:src="@drawable/ic_more" />
 
+            <ImageView
+                android:id="@+id/imvDownload"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="18dp"
+                android:clickable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_download" />
+
 
         </LinearLayout>
 

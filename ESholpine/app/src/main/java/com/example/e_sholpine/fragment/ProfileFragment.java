@@ -34,6 +34,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_sholpine.R;
 import com.example.e_sholpine.activity.EditProfileActivity;
+import com.example.e_sholpine.activity.EditProfileActivity1;
 import com.example.e_sholpine.activity.FollowListActivity;
 import com.example.e_sholpine.activity.FullScreenAvatarActivity;
 import com.example.e_sholpine.activity.HomeScreenActivity;
@@ -63,6 +64,7 @@ import com.google.firebase.storage.StorageReference;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
@@ -279,7 +281,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 videoSummaries.add(new VideoSummary(document.getString("videoId"),
                                         document.getString("thumbnailUri"),
-                                        (Long)document.get("watchCount")));
+                                        (Long)document.get("watchCount"),(List<String>) document.get("hashtags")));
                             }
                             if (videoSummaries.size() == 0) {
                                 return;
@@ -371,14 +373,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             showShareAccountDialog();
             return;
         }
-        if (v.getId() == R.id.btn_temporary) {
+       /* if (v.getId() == R.id.btn_temporary) {
             Intent intent = new Intent(context, HomeScreenActivity.class);
             startActivity(intent);
             return;
-        }
+        }*/
         if(v.getId() == btnEditProfile.getId()) {
 //            Toast.makeText(this, "YYY", Toast.LENGTH_SHORT).show();
-            moveToAnotherActivity(EditProfileActivity.class);
+            moveToAnotherActivity(EditProfileActivity1.class);
 
         }
 
@@ -430,7 +432,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("toptop-link", "http://toptoptoptop.com/" + user.getUid().toString());
+                ClipData clip = ClipData.newPlainText("swipe-link", "http://swipe.com/" + user.getUid().toString());
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(context, "Profile link has been saved to clipboard", Toast.LENGTH_SHORT).show();
             }

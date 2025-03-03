@@ -4,15 +4,15 @@ package com.example.e_sholpine.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textview.MaterialTextView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,20 +22,21 @@ public final class ActivityAccountSettingBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final FrameLayout flChangePasswordOption;
+  public final MaterialCardView flChangePasswordOption;
 
   @NonNull
-  public final FrameLayout flDeleteAccountOption;
+  public final MaterialCardView flDeleteAccountOption;
 
   @NonNull
-  public final ImageView imvBackToSettings;
+  public final MaterialButton imvBackToSettings;
 
   @NonNull
-  public final TextView txvChangePassword;
+  public final MaterialTextView txvChangePassword;
 
   private ActivityAccountSettingBinding(@NonNull LinearLayout rootView,
-      @NonNull FrameLayout flChangePasswordOption, @NonNull FrameLayout flDeleteAccountOption,
-      @NonNull ImageView imvBackToSettings, @NonNull TextView txvChangePassword) {
+      @NonNull MaterialCardView flChangePasswordOption,
+      @NonNull MaterialCardView flDeleteAccountOption, @NonNull MaterialButton imvBackToSettings,
+      @NonNull MaterialTextView txvChangePassword) {
     this.rootView = rootView;
     this.flChangePasswordOption = flChangePasswordOption;
     this.flDeleteAccountOption = flDeleteAccountOption;
@@ -71,25 +72,25 @@ public final class ActivityAccountSettingBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.flChangePasswordOption;
-      FrameLayout flChangePasswordOption = ViewBindings.findChildViewById(rootView, id);
+      MaterialCardView flChangePasswordOption = ViewBindings.findChildViewById(rootView, id);
       if (flChangePasswordOption == null) {
         break missingId;
       }
 
       id = R.id.flDeleteAccountOption;
-      FrameLayout flDeleteAccountOption = ViewBindings.findChildViewById(rootView, id);
+      MaterialCardView flDeleteAccountOption = ViewBindings.findChildViewById(rootView, id);
       if (flDeleteAccountOption == null) {
         break missingId;
       }
 
       id = R.id.imvBackToSettings;
-      ImageView imvBackToSettings = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton imvBackToSettings = ViewBindings.findChildViewById(rootView, id);
       if (imvBackToSettings == null) {
         break missingId;
       }
 
       id = R.id.txvChangePassword;
-      TextView txvChangePassword = ViewBindings.findChildViewById(rootView, id);
+      MaterialTextView txvChangePassword = ViewBindings.findChildViewById(rootView, id);
       if (txvChangePassword == null) {
         break missingId;
       }

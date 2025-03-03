@@ -4,25 +4,38 @@ package com.example.e_sholpine.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
+import com.google.android.material.textview.MaterialTextView;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class ActivityLauncherBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private ActivityLauncherBinding(@NonNull RelativeLayout rootView) {
+  @NonNull
+  public final MaterialTextView appName;
+
+  @NonNull
+  public final ImageView logo;
+
+  private ActivityLauncherBinding(@NonNull ConstraintLayout rootView,
+      @NonNull MaterialTextView appName, @NonNull ImageView logo) {
     this.rootView = rootView;
+    this.appName = appName;
+    this.logo = logo;
   }
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +56,25 @@ public final class ActivityLauncherBinding implements ViewBinding {
 
   @NonNull
   public static ActivityLauncherBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.app_name;
+      MaterialTextView appName = ViewBindings.findChildViewById(rootView, id);
+      if (appName == null) {
+        break missingId;
+      }
 
-    return new ActivityLauncherBinding((RelativeLayout) rootView);
+      id = R.id.logo;
+      ImageView logo = ViewBindings.findChildViewById(rootView, id);
+      if (logo == null) {
+        break missingId;
+      }
+
+      return new ActivityLauncherBinding((ConstraintLayout) rootView, appName, logo);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

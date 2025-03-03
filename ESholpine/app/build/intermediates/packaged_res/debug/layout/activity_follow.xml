@@ -5,181 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ProfileActivity">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/top_menu_bar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="right"
-        >
+    android:background="?attr/colorSurface"
+    tools:context=".activity.FollowListActivity">
 
-        <Button
-            android:id="@+id/btn_temporary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Home"
-            android:onClick="onClick">
-
-        </Button>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:onClick="onClick"
-            android:text="☰"
-            android:textSize="20sp"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            app:fontFamily="sans-serif-medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-    </LinearLayout>
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imvAvatarProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:clickable="true"
-        android:onClick="onClick"
-        android:scaleType="centerCrop"
-        android:backgroundTint="#AABBCC"
-        app:strokeWidth="2dp"
-        app:strokeColor="?attr/colorPrimary"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txv_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\@"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorOnBackground"
-        app:fontFamily="sans-serif-medium"
-        android:layout_margin="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imvAvatarProfile"/>
-
-    <LinearLayout
-        android:id="@+id/info"
-        android:layout_margin="15dp"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/text_following"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="?attr/colorOnBackground"
-                app:fontFamily="sans-serif-medium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="?attr/colorPrimary"
+        app:tabTextColor="?attr/colorOnSurfaceVariant"
+        app:tabSelectedTextColor="?attr/colorPrimary"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Following"
-                android:textSize="14sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                app:fontFamily="sans-serif"
-                app:layout_constraintTop_toBottomOf="@id/text_following"
-                app:layout_constraintStart_toStartOf="@id/text_following"
-                app:layout_constraintEnd_toEndOf="@id/text_following"
-                android:layout_marginTop="4dp"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/text_followers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="?attr/colorOnBackground"
-                app:fontFamily="sans-serif-medium"
-                app:layout_constraintStart_toEndOf="@id/text_following"
-                app:layout_constraintTop_toTopOf="@id/text_following"
-                app:layout_constraintEnd_toStartOf="@id/text_likes"/>
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Followers"
-                android:textSize="14sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                app:fontFamily="sans-serif"
-                app:layout_constraintTop_toBottomOf="@id/text_followers"
-                app:layout_constraintStart_toStartOf="@id/text_followers"
-                app:layout_constraintEnd_toEndOf="@id/text_followers"
-                android:layout_marginTop="4dp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/text_likes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="?attr/colorOnBackground"
-                app:fontFamily="sans-serif-medium"
-                app:layout_constraintStart_toEndOf="@id/text_followers"
-                app:layout_constraintTop_toTopOf="@id/text_followers"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Likes"
-                android:textSize="14sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                app:fontFamily="sans-serif"
-                app:layout_constraintTop_toBottomOf="@id/text_likes"
-                app:layout_constraintStart_toStartOf="@id/text_likes"
-                app:layout_constraintEnd_toEndOf="@id/text_likes"
-                android:layout_marginTop="4dp"/>
-
-        </LinearLayout>
-    </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_follow"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:text="Unfollow"
-        android:textAllCaps="false"
-        android:visibility="gone"/>
-
-
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>

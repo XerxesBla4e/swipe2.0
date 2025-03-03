@@ -1,5 +1,7 @@
 package com.example.e_sholpine.activity;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -37,6 +39,7 @@ import android.widget.Toast;
 import com.example.e_sholpine.R;
 
 import com.example.e_sholpine.adapters.VideoSummaryAdapter;
+import com.example.e_sholpine.helper.OnPhoneNumberFetchListener;
 import com.example.e_sholpine.helper.StaticVariable;
 import com.example.e_sholpine.model.Notification;
 import com.example.e_sholpine.model.VideoSummary;
@@ -64,8 +67,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ProfileActivity extends FragmentActivity implements View.OnClickListener {
+    private static final int EDIT_PROFILE_REQUEST_CODE = 1 ;
     final String USERNAME_LABEL = "username";
-    private TextView txvFollowing, txvFollowers, txvLikes, txvUserName;
+    private TextView txvFollowing, txvFollowers, txvLikes, txvUserName,txv_phone;
     private EditText edtBio;
     private Button btn, btnEditProfile, btnUpdateBio, btnCancelUpdateBio;
     private LinearLayout llFollowing, llFollowers, llInfor;
@@ -111,6 +115,7 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
         txvFollowers = (TextView) findViewById(R.id.text_followers);
         txvLikes = (TextView) findViewById(R.id.text_likes);
         txvUserName = (TextView) findViewById(R.id.txv_username);
+        txv_phone = (TextView) findViewById(R.id.tv_phone);
         edtBio = (EditText) findViewById(R.id.edt_bio);
         btnEditProfile = (Button) findViewById(R.id.button_edit_profile);
         imvAvatarProfile = (ImageView) findViewById(R.id.imvAvatarProfile);
@@ -213,6 +218,26 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
         recVideoSummary.setLayoutManager(gridLayoutManager);
         recVideoSummary.addItemDecoration(new GridSpacingItemDecoration(3, 10, true));
         setVideoSummaries();
+
+        fetchUserPhoneNumber(userId, new OnPhoneNumberFetchListener() {
+            @Override
+            public void onSuccess(String phoneNumber) {
+                // Handle successful phone number retrieval
+                //Toast.makeText(getApplicationContext(), "Phone number Fetched: " + phoneNumber, Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> {
+                    txv_phone.setText(phoneNumber);
+                });
+            }
+
+            @Override
+            public void onFailure(String error) {
+                // Handle error
+                Log.e("PHONE_FETCH", error);
+                runOnUiThread(() -> {
+                    Toast.makeText(getApplicationContext(), "Error: " + error, Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
     }//on create
 
     boolean isFollowed = false;
@@ -220,7 +245,7 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
     @Override
     public void onStart() {
         super.onStart();
-        Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
@@ -229,6 +254,8 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
                     txvFollowers.setText(((Long)document.get("followers")).toString());
                     txvLikes.setText(((Long)document.get("likes")).toString());
                     txvUserName.setText("@" + document.getString(USERNAME_LABEL));
+
+                  //  txv_phone.setText((document.get("phone")).toString());
 //                        oldBioText = document.getString("bio");
 //                        edtBio.setText(oldBioText);
 
@@ -313,7 +340,7 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 videoSummaries.add(new VideoSummary(document.getString("videoId"),
                                         document.getString("thumbnailUri"),
-                                        (Long) document.get("watchCount")));
+                                        (Long) document.get("watchCount"),(List<String>) document.get("hashtags")));
                             }
                             if (videoSummaries.size() == 0) {
                                 return;
@@ -389,16 +416,20 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
             showShareAccountDialog();
             return;
         }
-        if (v.getId() == R.id.btn_temporary) {
+       /* if (v.getId() == R.id.btn_temporary) {
             Intent intent = new Intent(ProfileActivity.this, HomeScreenActivity.class);
             startActivity(intent);
             return;
-        }
+        }*/
         if (v.getId() == btnEditProfile.getId()) {
 //            Toast.makeText(this, "YYY", Toast.LENGTH_SHORT).show();
-            moveToAnotherActivity(EditProfileActivity.class);
-            finish();
+          moveToAnotherActivity(EditProfileActivity1.class);
+          //  finish();
 
+          /*  Intent intent = new Intent(this, EditProfileActivity1.class);
+            intent.putExtra("userId", userId);
+            intent.putExtra("forReferral", true);
+            startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);*/
         }
         if (v.getId() == R.id.btnBackProfile) {
 
@@ -799,5 +830,30 @@ public class ProfileActivity extends FragmentActivity implements View.OnClickLis
         } catch (Exception exception) {
             Log.d("exception", exception.toString());
         }
+    }
+
+    public void fetchUserPhoneNumber(String userId, OnPhoneNumberFetchListener listener) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users")
+                .document(userId)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists() && document.contains("phone")) {
+                            String phoneNumber = document.getString("phone");
+                            if (phoneNumber != null && !phoneNumber.isEmpty()) {
+                                listener.onSuccess(phoneNumber);
+                            } else {
+                                listener.onFailure("Phone number not found in document");
+                            }
+                        } else {
+                            listener.onFailure("User document does not exist");
+                        }
+                    } else {
+                        listener.onFailure("Error getting document: " + task.getException().getMessage());
+                    }
+                });
     }
 }

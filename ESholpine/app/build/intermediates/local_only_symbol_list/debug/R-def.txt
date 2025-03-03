@@ -12,6 +12,7 @@ attr? fullscreenTextColor
 color background
 color black
 color black_overlay
+color divider_color
 color hint
 color ic_launcher_background
 color light_blue_600
@@ -21,6 +22,7 @@ color light_blue_A400
 color purple_200
 color purple_500
 color purple_700
+color ripple_color
 color teal_200
 color teal_700
 color tiktok_black
@@ -35,6 +37,7 @@ color transparent
 color white
 dimen fab_margin
 drawable background_video
+drawable baseline_download_24
 drawable baseline_monetization_on_24
 drawable btn_add_shape
 drawable btn_normal_shape
@@ -131,6 +134,7 @@ id FirstFragment
 id SecondFragment
 id action_FirstFragment_to_SecondFragment
 id action_SecondFragment_to_FirstFragment
+id app_name
 id apply_code_button
 id blank_notification
 id btnAddVideo
@@ -157,7 +161,6 @@ id btnSignInAgain
 id btnUploadVideo
 id btn_cancel_update_bio
 id btn_copy_link
-id btn_temporary
 id btn_update_bio
 id button_close
 id button_continue
@@ -207,6 +210,7 @@ id imvBackToProfile
 id imvBackToSettings
 id imvBackToVideo
 id imvCopyLink
+id imvDownload
 id imvFullscreen
 id imvLikeInComment
 id imvMore
@@ -240,6 +244,7 @@ id llSignupChoice
 id llSignupPage
 id ll_followers
 id ll_following
+id logo
 id lvNotifications
 id lv_followers
 id lv_following
@@ -284,6 +289,7 @@ id tvVideo
 id tv_flip_camera
 id tv_followers_userMame
 id tv_following_userMame
+id tv_phone
 id tv_remove_follower
 id tv_test
 id txvCancelInSharedPlace
@@ -312,7 +318,9 @@ layout activity_delete_account
 layout activity_delete_video_setting
 layout activity_description_video
 layout activity_edit
+layout activity_edit1
 layout activity_edit_profile
+layout activity_edit_profile1
 layout activity_email_log_in
 layout activity_email_signin
 layout activity_email_signup
@@ -359,6 +367,7 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation nav_graph
+string Share
 string action_search
 string app_name
 string apply
@@ -382,6 +391,7 @@ string error_birthdate
 string error_confirm
 string error_existedEmail
 string error_existedPhone
+string error_phone
 string error_phone_number
 string error_signin
 string error_undefined

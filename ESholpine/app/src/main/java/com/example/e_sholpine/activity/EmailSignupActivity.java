@@ -133,7 +133,8 @@ public class EmailSignupActivity extends Activity{
                             if(Uname.length>0){
                                 nam = Uname[0];
                             }
-                            User user = new User(id, nam, "", firebaseUser.getEmail());
+                           // Toast.makeText(getApplicationContext(),firebaseUser.getPhoneNumber()+"Phone Number",Toast.LENGTH_SHORT).show();
+                            User user = new User(id, nam.toLowerCase(), "", firebaseUser.getEmail());
                             writeNewUser(user);
                             Profile profile = new Profile(id, nam);
                             writeNewProfile(profile);

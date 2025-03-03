@@ -13,7 +13,7 @@ public interface ZengaPayApi {
 
 
     @Headers({
-            "Authorization: Bearer ZPYPUBK-2dc39841062ed9f2a2e0d3b379cee2dd98b4c08d031da877e71f868a780ff48d",
+            "Authorization: Bearer ZPYPUBK-4a0906412986165fe12d382fcba9e06fc7d58f92c24f669c8d4d929147d6f619",
             "Content-Type: application/json"
     })
     @POST("v1/collections")

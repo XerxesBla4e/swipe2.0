@@ -5,26 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ProfileActivity"
-    android:background="?attr/colorPrimary">
+    android:background="@color/tiktok_black">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/top_menu_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:orientation="horizontal"
         android:gravity="right"
-        >
+        android:padding="10dp"
+        android:background="@color/tiktok_black">
 
         <TextView
-            android:id="@+id/text_menu"
+            android:id="@+id/"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:text="&#9776;"
-            android:textAlignment="gravity"
-            android:textSize="20sp"></TextView>
+            android:text="☰"
+            android:textSize="20sp" />
+
     </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -32,7 +30,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:clickable="true"/>
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/txv_username"
@@ -42,14 +40,16 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:textSize="18dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/info"
-        android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:orientation="horizontal"
         android:gravity="center_horizontal">
+
         <LinearLayout
             android:id="@+id/ll_following"
             android:layout_width="80dp"
@@ -57,19 +57,22 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             android:clickable="true">
+
             <TextView
                 android:id="@+id/text_following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textStyle="bold"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Following"
-                android:textSize="14dp"></TextView>
+                android:textSize="14dp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_followers"
             android:layout_width="80dp"
@@ -77,72 +80,81 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             android:clickable="true">
+
             <TextView
                 android:id="@+id/text_followers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textStyle="bold"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Followers"
-                android:textSize="14dp"></TextView>
+                android:textSize="14dp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
+
             <TextView
                 android:id="@+id/text_likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textStyle="bold"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Likes"
-                android:textSize="14dp"></TextView>
+                android:textSize="14dp" />
         </LinearLayout>
     </LinearLayout>
+
     <EditText
+        android:id="@+id/edt_bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/edt_bio"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:visibility="gone"
         android:background="@null"
-        android:layout_marginBottom="10dp"
-        ></EditText>
+        android:layout_marginBottom="10dp" />
+
     <LinearLayout
+        android:id="@+id/layout_bio"
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:id="@+id/layout_bio"
         android:visibility="gone"
         android:layout_margin="5dp">
+
         <Button
+            android:id="@+id/btn_update_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update"
             style="@style/tiktok_button_red"
-            android:id="@+id/btn_update_bio"
-            android:onClick="onClick"></Button>
+            android:onClick="onClick" />
+
         <Button
+            android:id="@+id/btn_cancel_update_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Abort"
             android:layout_marginLeft="5dp"
             style="@style/tiktok_button_transparent"
-            android:id="@+id/btn_cancel_update_bio"
-            android:onClick="onClick"></Button>
+            android:onClick="onClick" />
     </LinearLayout>
+
     <Button
         android:id="@+id/button_follow"
         android:layout_width="180dp"
@@ -150,25 +162,29 @@
         android:text="Follow"
         style="@style/tiktok_button_red"
         android:layout_gravity="center"
-        android:visibility="gone"></Button>
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/button_edit_profile"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="@color/tiktok_red"
         android:text="Edit profile"
         style="@style/tiktok_button_transparent"
-        android:visibility="gone"></Button>
+        android:visibility="gone" />
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="30dp"
-        >
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycle_view_video_summary">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="30dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_video_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </ScrollView>
 </LinearLayout>

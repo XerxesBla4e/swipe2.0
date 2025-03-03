@@ -4,16 +4,14 @@ package com.example.e_sholpine.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.example.e_sholpine.R;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textview.MaterialTextView;
+import com.google.android.material.tabs.TabLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -23,52 +21,16 @@ public final class ActivityFollowBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button btnTemporary;
+  public final TabLayout tabs;
 
   @NonNull
-  public final MaterialButton buttonFollow;
+  public final ViewPager2 viewPager;
 
-  @NonNull
-  public final ShapeableImageView imvAvatarProfile;
-
-  @NonNull
-  public final LinearLayout info;
-
-  @NonNull
-  public final MaterialTextView textFollowers;
-
-  @NonNull
-  public final MaterialTextView textFollowing;
-
-  @NonNull
-  public final MaterialTextView textLikes;
-
-  @NonNull
-  public final MaterialTextView textMenu;
-
-  @NonNull
-  public final LinearLayout topMenuBar;
-
-  @NonNull
-  public final MaterialTextView txvUsername;
-
-  private ActivityFollowBinding(@NonNull LinearLayout rootView, @NonNull Button btnTemporary,
-      @NonNull MaterialButton buttonFollow, @NonNull ShapeableImageView imvAvatarProfile,
-      @NonNull LinearLayout info, @NonNull MaterialTextView textFollowers,
-      @NonNull MaterialTextView textFollowing, @NonNull MaterialTextView textLikes,
-      @NonNull MaterialTextView textMenu, @NonNull LinearLayout topMenuBar,
-      @NonNull MaterialTextView txvUsername) {
+  private ActivityFollowBinding(@NonNull LinearLayout rootView, @NonNull TabLayout tabs,
+      @NonNull ViewPager2 viewPager) {
     this.rootView = rootView;
-    this.btnTemporary = btnTemporary;
-    this.buttonFollow = buttonFollow;
-    this.imvAvatarProfile = imvAvatarProfile;
-    this.info = info;
-    this.textFollowers = textFollowers;
-    this.textFollowing = textFollowing;
-    this.textLikes = textLikes;
-    this.textMenu = textMenu;
-    this.topMenuBar = topMenuBar;
-    this.txvUsername = txvUsername;
+    this.tabs = tabs;
+    this.viewPager = viewPager;
   }
 
   @Override
@@ -98,69 +60,19 @@ public final class ActivityFollowBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_temporary;
-      Button btnTemporary = ViewBindings.findChildViewById(rootView, id);
-      if (btnTemporary == null) {
+      id = R.id.tabs;
+      TabLayout tabs = ViewBindings.findChildViewById(rootView, id);
+      if (tabs == null) {
         break missingId;
       }
 
-      id = R.id.button_follow;
-      MaterialButton buttonFollow = ViewBindings.findChildViewById(rootView, id);
-      if (buttonFollow == null) {
+      id = R.id.view_pager;
+      ViewPager2 viewPager = ViewBindings.findChildViewById(rootView, id);
+      if (viewPager == null) {
         break missingId;
       }
 
-      id = R.id.imvAvatarProfile;
-      ShapeableImageView imvAvatarProfile = ViewBindings.findChildViewById(rootView, id);
-      if (imvAvatarProfile == null) {
-        break missingId;
-      }
-
-      id = R.id.info;
-      LinearLayout info = ViewBindings.findChildViewById(rootView, id);
-      if (info == null) {
-        break missingId;
-      }
-
-      id = R.id.text_followers;
-      MaterialTextView textFollowers = ViewBindings.findChildViewById(rootView, id);
-      if (textFollowers == null) {
-        break missingId;
-      }
-
-      id = R.id.text_following;
-      MaterialTextView textFollowing = ViewBindings.findChildViewById(rootView, id);
-      if (textFollowing == null) {
-        break missingId;
-      }
-
-      id = R.id.text_likes;
-      MaterialTextView textLikes = ViewBindings.findChildViewById(rootView, id);
-      if (textLikes == null) {
-        break missingId;
-      }
-
-      id = R.id.text_menu;
-      MaterialTextView textMenu = ViewBindings.findChildViewById(rootView, id);
-      if (textMenu == null) {
-        break missingId;
-      }
-
-      id = R.id.top_menu_bar;
-      LinearLayout topMenuBar = ViewBindings.findChildViewById(rootView, id);
-      if (topMenuBar == null) {
-        break missingId;
-      }
-
-      id = R.id.txv_username;
-      MaterialTextView txvUsername = ViewBindings.findChildViewById(rootView, id);
-      if (txvUsername == null) {
-        break missingId;
-      }
-
-      return new ActivityFollowBinding((LinearLayout) rootView, btnTemporary, buttonFollow,
-          imvAvatarProfile, info, textFollowers, textFollowing, textLikes, textMenu, topMenuBar,
-          txvUsername);
+      return new ActivityFollowBinding((LinearLayout) rootView, tabs, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

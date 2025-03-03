@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
+import com.google.android.material.textview.MaterialTextView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -31,11 +31,11 @@ public final class ActivitySearchingBinding implements ViewBinding {
   public final SearchView searchView;
 
   @NonNull
-  public final TextView tvSubmitSearch;
+  public final MaterialTextView tvSubmitSearch;
 
   private ActivitySearchingBinding(@NonNull LinearLayout rootView, @NonNull RecyclerView rcvUsers,
       @NonNull RecyclerView rcvVideoSummary, @NonNull SearchView searchView,
-      @NonNull TextView tvSubmitSearch) {
+      @NonNull MaterialTextView tvSubmitSearch) {
     this.rootView = rootView;
     this.rcvUsers = rcvUsers;
     this.rcvVideoSummary = rcvVideoSummary;
@@ -89,7 +89,7 @@ public final class ActivitySearchingBinding implements ViewBinding {
       }
 
       id = R.id.tvSubmitSearch;
-      TextView tvSubmitSearch = ViewBindings.findChildViewById(rootView, id);
+      MaterialTextView tvSubmitSearch = ViewBindings.findChildViewById(rootView, id);
       if (tvSubmitSearch == null) {
         break missingId;
       }

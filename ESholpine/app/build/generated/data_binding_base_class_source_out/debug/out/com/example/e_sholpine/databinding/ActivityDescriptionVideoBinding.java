@@ -4,8 +4,6 @@ package com.example.e_sholpine.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
@@ -13,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,16 +22,16 @@ public final class ActivityDescriptionVideoBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button btnDescription;
+  public final MaterialButton btnDescription;
 
   @NonNull
-  public final EditText edtDescription;
+  public final TextInputEditText edtDescription;
 
   @NonNull
   public final ImageView imvShortCutVideo;
 
   private ActivityDescriptionVideoBinding(@NonNull LinearLayout rootView,
-      @NonNull Button btnDescription, @NonNull EditText edtDescription,
+      @NonNull MaterialButton btnDescription, @NonNull TextInputEditText edtDescription,
       @NonNull ImageView imvShortCutVideo) {
     this.rootView = rootView;
     this.btnDescription = btnDescription;
@@ -67,13 +67,13 @@ public final class ActivityDescriptionVideoBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btnDescription;
-      Button btnDescription = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton btnDescription = ViewBindings.findChildViewById(rootView, id);
       if (btnDescription == null) {
         break missingId;
       }
 
       id = R.id.edtDescription;
-      EditText edtDescription = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText edtDescription = ViewBindings.findChildViewById(rootView, id);
       if (edtDescription == null) {
         break missingId;
       }

@@ -75,6 +75,9 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final LinearLayout topMenuBar;
 
   @NonNull
+  public final TextView tvPhone;
+
+  @NonNull
   public final TextView txvUsername;
 
   private ActivityProfileBinding(@NonNull LinearLayout rootView, @NonNull Button btnBackProfile,
@@ -84,7 +87,8 @@ public final class ActivityProfileBinding implements ViewBinding {
       @NonNull LinearLayout layoutBio, @NonNull LinearLayout llFollowers,
       @NonNull LinearLayout llFollowing, @NonNull RecyclerView recycleViewVideoSummary,
       @NonNull TextView textFollowers, @NonNull TextView textFollowing, @NonNull TextView textLikes,
-      @NonNull TextView textMenu, @NonNull LinearLayout topMenuBar, @NonNull TextView txvUsername) {
+      @NonNull TextView textMenu, @NonNull LinearLayout topMenuBar, @NonNull TextView tvPhone,
+      @NonNull TextView txvUsername) {
     this.rootView = rootView;
     this.btnBackProfile = btnBackProfile;
     this.btnCancelUpdateBio = btnCancelUpdateBio;
@@ -103,6 +107,7 @@ public final class ActivityProfileBinding implements ViewBinding {
     this.textLikes = textLikes;
     this.textMenu = textMenu;
     this.topMenuBar = topMenuBar;
+    this.tvPhone = tvPhone;
     this.txvUsername = txvUsername;
   }
 
@@ -235,6 +240,12 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_phone;
+      TextView tvPhone = ViewBindings.findChildViewById(rootView, id);
+      if (tvPhone == null) {
+        break missingId;
+      }
+
       id = R.id.txv_username;
       TextView txvUsername = ViewBindings.findChildViewById(rootView, id);
       if (txvUsername == null) {
@@ -244,7 +255,7 @@ public final class ActivityProfileBinding implements ViewBinding {
       return new ActivityProfileBinding((LinearLayout) rootView, btnBackProfile, btnCancelUpdateBio,
           btnUpdateBio, buttonEditProfile, buttonFollow, edtBio, imvAvatarProfile, info, layoutBio,
           llFollowers, llFollowing, recycleViewVideoSummary, textFollowers, textFollowing,
-          textLikes, textMenu, topMenuBar, txvUsername);
+          textLikes, textMenu, topMenuBar, tvPhone, txvUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

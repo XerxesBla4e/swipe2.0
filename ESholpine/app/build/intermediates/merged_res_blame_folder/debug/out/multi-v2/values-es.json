@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-63:/values-es/values-es.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-71:/values-es/values-es.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\c4b036eae3ed29226cb0f47bca5e7264\\transformed\\material-1.12.0\\res\\values-es\\values-es.xml",

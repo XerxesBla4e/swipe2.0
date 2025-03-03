@@ -4,22 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.EmailSignupActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="?attr/colorSurface"
+    tools:context=".activity.EmailSignupActivity">
 
-    <EditText
-        android:id="@+id/edtEmail"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_enter_email"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintTextColor="?attr/colorOnSurface"
+        app:boxStrokeColor="?attr/colorPrimary">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_enter_email"
+            android:textColor="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ic_btnNext"
-        style="@style/tiktok_button_red" />
-
-
+        android:textAllCaps="false"
+        app:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        style="@style/Widget.MaterialComponents.Button" />
 </LinearLayout>

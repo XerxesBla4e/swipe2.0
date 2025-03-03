@@ -4,8 +4,6 @@ package com.example.e_sholpine.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
@@ -13,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,19 +22,20 @@ public final class ActivityEmailLogInBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button btnLogin;
+  public final MaterialButton btnLogin;
 
   @NonNull
-  public final EditText edtEmail;
+  public final TextInputEditText edtEmail;
 
   @NonNull
-  public final EditText edtPassword;
+  public final TextInputEditText edtPassword;
 
   @NonNull
   public final ProgressBar progressBar;
 
-  private ActivityEmailLogInBinding(@NonNull LinearLayout rootView, @NonNull Button btnLogin,
-      @NonNull EditText edtEmail, @NonNull EditText edtPassword, @NonNull ProgressBar progressBar) {
+  private ActivityEmailLogInBinding(@NonNull LinearLayout rootView,
+      @NonNull MaterialButton btnLogin, @NonNull TextInputEditText edtEmail,
+      @NonNull TextInputEditText edtPassword, @NonNull ProgressBar progressBar) {
     this.rootView = rootView;
     this.btnLogin = btnLogin;
     this.edtEmail = edtEmail;
@@ -70,19 +71,19 @@ public final class ActivityEmailLogInBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btnLogin;
-      Button btnLogin = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton btnLogin = ViewBindings.findChildViewById(rootView, id);
       if (btnLogin == null) {
         break missingId;
       }
 
       id = R.id.edtEmail;
-      EditText edtEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText edtEmail = ViewBindings.findChildViewById(rootView, id);
       if (edtEmail == null) {
         break missingId;
       }
 
       id = R.id.edtPassword;
-      EditText edtPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText edtPassword = ViewBindings.findChildViewById(rootView, id);
       if (edtPassword == null) {
         break missingId;
       }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-63:/values-tl/values-tl.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-71:/values-tl/values-tl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\3ecafacaa02be268efbf9b022cc67a41\\transformed\\exoplayer-ui-2.19.1\\res\\values-tl\\values-tl.xml",
