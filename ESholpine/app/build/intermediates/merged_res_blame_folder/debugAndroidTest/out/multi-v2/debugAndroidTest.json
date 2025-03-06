@@ -1,34 +1,34 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.test.app-merged_res-4:/values-v28_values-v28.arsc.flat",
+            "outputFile": "com.example.e_sholpine.test.app-merged_res-5:/values-v18_values-v18.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\8b93b161a98fda7c1f67d503e013a78c\\transformed\\core-1.6.1\\res\\values-v28\\values.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1ef0c8238ac3bcaf87874fd97ba1cab3\\transformed\\core-1.6.1\\res\\values-v18\\values.xml",
                     "from": {
-                        "startLines": "4,13",
+                        "startLines": "4,12",
                         "startColumns": "0,0",
-                        "startOffsets": "146,625",
-                        "endLines": "12,21",
+                        "startOffsets": "146,562",
+                        "endLines": "11,19",
                         "endColumns": "8,8",
-                        "endOffsets": "624,1101"
+                        "endOffsets": "561,975"
                     },
                     "to": {
-                        "startLines": "2,11",
+                        "startLines": "2,10",
                         "startColumns": "4,4",
-                        "startOffsets": "55,538",
-                        "endLines": "10,19",
+                        "startOffsets": "55,475",
+                        "endLines": "9,17",
                         "endColumns": "8,8",
-                        "endOffsets": "533,1014"
+                        "endOffsets": "470,888"
                     }
                 }
             ]
         },
         {
-            "outputFile": "com.example.e_sholpine.test.app-merged_res-4:/values-v21_values-v21.arsc.flat",
+            "outputFile": "com.example.e_sholpine.test.app-merged_res-5:/values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\8b93b161a98fda7c1f67d503e013a78c\\transformed\\core-1.6.1\\res\\values-v21\\values.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1ef0c8238ac3bcaf87874fd97ba1cab3\\transformed\\core-1.6.1\\res\\values-v21\\values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",
@@ -49,10 +49,34 @@
             ]
         },
         {
-            "outputFile": "com.example.e_sholpine.test.app-merged_res-4:/values_values.arsc.flat",
+            "outputFile": "com.example.e_sholpine.test.app-merged_res-5:/values-v28_values-v28.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\8b93b161a98fda7c1f67d503e013a78c\\transformed\\core-1.6.1\\res\\values\\values.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1ef0c8238ac3bcaf87874fd97ba1cab3\\transformed\\core-1.6.1\\res\\values-v28\\values.xml",
+                    "from": {
+                        "startLines": "4,13",
+                        "startColumns": "0,0",
+                        "startOffsets": "146,625",
+                        "endLines": "12,21",
+                        "endColumns": "8,8",
+                        "endOffsets": "624,1101"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,538",
+                        "endLines": "10,19",
+                        "endColumns": "8,8",
+                        "endOffsets": "533,1014"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.example.e_sholpine.test.app-merged_res-5:/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1ef0c8238ac3bcaf87874fd97ba1cab3\\transformed\\core-1.6.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,11",
                         "startColumns": "0,0",
@@ -68,30 +92,6 @@
                         "endLines": "8,15",
                         "endColumns": "8,8",
                         "endOffsets": "422,792"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.example.e_sholpine.test.app-merged_res-4:/values-v18_values-v18.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\8b93b161a98fda7c1f67d503e013a78c\\transformed\\core-1.6.1\\res\\values-v18\\values.xml",
-                    "from": {
-                        "startLines": "4,12",
-                        "startColumns": "0,0",
-                        "startOffsets": "146,562",
-                        "endLines": "11,19",
-                        "endColumns": "8,8",
-                        "endOffsets": "561,975"
-                    },
-                    "to": {
-                        "startLines": "2,10",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,475",
-                        "endLines": "9,17",
-                        "endColumns": "8,8",
-                        "endOffsets": "470,888"
                     }
                 }
             ]

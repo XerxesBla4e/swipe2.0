@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="?attr/colorPrimary"
+    android:background="@color/tiktok_black"
     tools:context=".activity.SignupChoiceActivity">
 
     <TextView
@@ -53,6 +53,7 @@
         android:textColor="@color/tiktok_white"
         android:background="@color/tiktok_red"
         android:textSize="16dp" />
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="50dp"></View>

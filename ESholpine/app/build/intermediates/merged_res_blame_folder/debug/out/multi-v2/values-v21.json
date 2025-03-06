@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-71:/values-v21/values-v21.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-76:/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\3ecafacaa02be268efbf9b022cc67a41\\transformed\\exoplayer-ui-2.19.1\\res\\values-v21\\values-v21.xml",
@@ -80,7 +80,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\8d18c231c3659c9c45c7f007e1b2c1d6\\transformed\\media-1.6.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\fe1e5c3af578be11120907359a5ee0be\\transformed\\media-1.7.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,5,8,11",
                         "startColumns": "4,4,4,4",

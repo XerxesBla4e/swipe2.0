@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -96,14 +97,9 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
             sdf.setTimeZone(TimeZone.getTimeZone("UTC")); // Use UTC for consistency
 
-            // Parse deadline date
             Date deadlineDate = sdf.parse(DEADLINE_DATE);
-
-            // Normalize current date to UTC and remove time component
             Date currentDate = sdf.parse(sdf.format(new Date()));
 
-            // Log the dates for debugging
-//            Toast.makeText(getApplicationContext(),"Is Current Date Before Deadline? " + currentDate.before(deadlineDate),Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Deadline Date: " + deadlineDate);
             Log.d(TAG, "Current Date: " + currentDate);
             Log.d(TAG, "Is Current Date Before Deadline? " + currentDate.before(deadlineDate));
@@ -171,15 +167,13 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
-
-            if (pressedTime + 2000 > System.currentTimeMillis()) {
-                super.onBackPressed();
-                finish();
-            } else {
-                Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
-            }
-            pressedTime = System.currentTimeMillis();
-
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 
     private boolean isAppUsable() {
@@ -188,8 +182,6 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-
-
         if (view.getId() == btnSearch.getId()) {
             handleSearchClick();
         } else if (view.getId() == btnProfile.getId()) {
@@ -207,15 +199,12 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
 
     private void handleSearchClick() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        // Check if the fragment is already added
         searchFragment = (SearchFragment) getSupportFragmentManager().findFragmentByTag("SearchFragment");
         if (searchFragment == null) {
             searchFragment = SearchFragment.newInstance("search");
-            ft.add(R.id.main_fragment, searchFragment, "SearchFragment"); // Use a tag
+            ft.add(R.id.main_fragment, searchFragment, "SearchFragment");
         }
-
-        showFragments(ft, 1); // Show the search fragment and hide others
+        showFragments(ft, 1);
         ft.commit();
     }
 
@@ -225,17 +214,13 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             startActivityForResult(intent, SIGN_IN_REQUEST_CODE);
             return;
         }
-
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        // Check if the fragment is already added
         profileFragment = (ProfileFragment) getSupportFragmentManager().findFragmentByTag("ProfileFragment");
         if (profileFragment == null) {
             profileFragment = ProfileFragment.newInstance("profile", "");
-            ft.add(R.id.main_fragment, profileFragment, "ProfileFragment"); // Use a tag
+            ft.add(R.id.main_fragment, profileFragment, "ProfileFragment");
         }
-
-        showFragments(ft, 3); // Show the profile fragment and hide others
+        showFragments(ft, 3);
         ft.commit();
     }
 
@@ -255,19 +240,16 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             showNiceDialogBox(this, null, null);
             return;
         }
-
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        // Check if the fragment is already added
         inboxFragment = (InboxFragment) getSupportFragmentManager().findFragmentByTag("InboxFragment");
         if (inboxFragment == null) {
             inboxFragment = InboxFragment.newInstance("inbox");
-            ft.add(R.id.main_fragment, inboxFragment, "InboxFragment"); // Use a tag
+            ft.add(R.id.main_fragment, inboxFragment, "InboxFragment");
         }
-
-        showFragments(ft, 2); // Show the inbox fragment and hide others
+        showFragments(ft, 2);
         ft.commit();
     }
+
     private void handleHomeClick() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (videoFragment == null) {
@@ -284,7 +266,6 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             return;
         }
         String userId = user.getUid();
-
         Intent intent = getIntent();
         Uri data = intent.getData();
         Intent referralIntent = new Intent(this, ReferralActivity.class);
@@ -323,7 +304,7 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
                     if (task.isSuccessful() && task.getResult().exists()) {
                         phoneNumber = task.getResult().getString("phone");
                         Log.d(TAG, "Phone number after sign-in: " + phoneNumber);
-                        checkDeadline(); // Re-check deadline after sign-in
+                        checkDeadline();
                     }
                 });
             }
@@ -413,7 +394,6 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
     }
 
     private void showFragments(FragmentTransaction ft, int position) {
-        // Hide all fragments first
         if (videoFragment != null && videoFragment.isVisible()) {
             ft.hide(videoFragment);
             stopVideoFragment();
@@ -428,7 +408,6 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             ft.hide(profileFragment);
         }
 
-        // Show the fragment at the specified position
         switch (position) {
             case 0:
                 if (videoFragment != null) {
@@ -452,9 +431,9 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
                 }
                 break;
         }
-
         Log.d(TAG, "Showing fragment at position: " + position);
     }
+
     public void stopVideoFragment() {
         if (videoFragment != null) {
             videoFragment.stopVideo();
@@ -499,6 +478,13 @@ public class HomeScreenActivity extends FragmentActivity implements View.OnClick
             videoFragment = VideoFragment.newInstance("fragment_video");
             ft.replace(R.id.main_fragment, videoFragment);
             ft.commit();
+            // Preload first video after fragment is added
+            new Handler().postDelayed(() -> {
+                if (videoFragment.videoAdapter != null && !videoFragment.videos.isEmpty()) {
+                    videoFragment.videoAdapter.playVideo(0);
+                    videoFragment.videoAdapter.pauseVideo(0);
+                }
+            }, 500);
         } else {
             showFragments(ft, 0);
             ft.commit();

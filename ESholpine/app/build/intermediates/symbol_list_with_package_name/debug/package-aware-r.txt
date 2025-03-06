@@ -715,6 +715,7 @@ attr imagePanX
 attr imagePanY
 attr imageRotate
 attr imageZoom
+attr implementationMode
 attr indeterminateAnimationType
 attr indeterminateProgressStyle
 attr indicatorColor
@@ -1103,6 +1104,7 @@ attr roundPercent
 attr route
 attr saturation
 attr scaleFromTextSize
+attr scaleType
 attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
@@ -3407,6 +3409,7 @@ drawable ic_send
 drawable ic_share
 drawable ic_stat_name
 drawable ic_upload
+drawable ic_upload_arrow
 drawable icon_search
 drawable indeterminate_static
 drawable loading
@@ -3653,23 +3656,16 @@ id btnReferandEarn
 id btnSave
 id btnSearch
 id btnSignInAgain
-id btnUploadVideo
 id btn_cancel_update_bio
 id btn_copy_link
 id btn_update_bio
 id buttonPanel
-id button_close
-id button_continue
 id button_edit_profile
 id button_first
 id button_follow
-id button_pause
-id button_record
 id button_second
-id button_stop
 id cache_measures
 id callMeasure
-id camera_frame
 id cancel_action
 id cancel_button
 id carryVelocity
@@ -3691,6 +3687,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id compatible
 id compress
 id confirm_button
 id constraint
@@ -3818,6 +3815,9 @@ id expand_activities_button
 id expanded_menu
 id fade
 id fill
+id fillCenter
+id fillEnd
+id fillStart
 id fill_horizontal
 id fill_vertical
 id filled
@@ -3838,10 +3838,10 @@ id flAccountOption
 id flChangePasswordOption
 id flDeleteAccountOption
 id flDeleteVideo
-id flMain
 id flNavigation
 id flShareProfileOption
 id flip
+id flipButton
 id floating
 id forever
 id fragWaiting
@@ -3879,7 +3879,6 @@ id imbPhoto
 id imbSelect
 id imbSendComment
 id imbUsername
-id imb_flip_camera
 id immediateStop
 id imvAvatar
 id imvAvatarInComment
@@ -4067,12 +4066,14 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id performance
 id pgbWait
 id pin
 id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id previewView
 id progressBar
 id progress_circular
 id progress_horizontal
@@ -4080,6 +4081,7 @@ id radio
 id ratio
 id rcvVideoSummary
 id rcv_users
+id recordButton
 id rectangles
 id recycle_view_video_summary
 id referral_code
@@ -4203,8 +4205,6 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id texture_view
-id texture_view_back
-id texture_view_front
 id textview_first
 id textview_second
 id time
@@ -4237,7 +4237,6 @@ id tvSubmitSearch
 id tvTitle
 id tvUsername
 id tvVideo
-id tv_flip_camera
 id tv_followers_userMame
 id tv_following_userMame
 id tv_phone
@@ -4261,6 +4260,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id uploadButton
 id useLogo
 id vertical
 id vertical_only
@@ -6231,6 +6231,7 @@ styleable PlayerControlView ad_marker_color ad_marker_width bar_gravity bar_heig
 styleable PlayerView ad_marker_color ad_marker_width auto_show bar_height buffered_color controller_layout_id default_artwork hide_during_ads hide_on_touch keep_content_on_player_reset played_ad_marker_color played_color player_layout_id repeat_toggle_modes resize_mode scrubber_color scrubber_disabled_size scrubber_dragged_size scrubber_drawable scrubber_enabled_size show_buffering show_shuffle_button show_timeout shutter_background_color surface_type time_bar_min_update_interval touch_target_height unplayed_color use_artwork use_controller
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
+styleable PreviewView implementationMode scaleType
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RadialViewGroup materialCircleRadius
 styleable RangeSlider minSeparation values
@@ -6279,4 +6280,5 @@ styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration
 styleable include constraintSet
 xml backup_rules
 xml data_extraction_rules
+xml file_paths
 xml image_share_filepaths

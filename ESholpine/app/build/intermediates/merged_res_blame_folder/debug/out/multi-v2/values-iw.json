@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-71:/values-iw/values-iw.xml",
+            "outputFile": "com.example.e_sholpine.app-mergeDebugResources-76:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\cadd494ce92f2e29cbb95d16082ca06e\\transformed\\exoplayer-core-2.19.1\\res\\values-iw\\values-iw.xml",

@@ -101,6 +101,7 @@ drawable ic_send
 drawable ic_share
 drawable ic_stat_name
 drawable ic_upload
+drawable ic_upload_arrow
 drawable icon_search
 drawable loading
 drawable no_border_shape
@@ -158,20 +159,13 @@ id btnReferandEarn
 id btnSave
 id btnSearch
 id btnSignInAgain
-id btnUploadVideo
 id btn_cancel_update_bio
 id btn_copy_link
 id btn_update_bio
-id button_close
-id button_continue
 id button_edit_profile
 id button_first
 id button_follow
-id button_pause
-id button_record
 id button_second
-id button_stop
-id camera_frame
 id earned_points
 id edtComment
 id edtConfirmPassword
@@ -188,9 +182,9 @@ id flAccountOption
 id flChangePasswordOption
 id flDeleteAccountOption
 id flDeleteVideo
-id flMain
 id flNavigation
 id flShareProfileOption
+id flipButton
 id fragWaiting
 id image_thumbnail
 id imbBack
@@ -200,7 +194,6 @@ id imbPhoto
 id imbSelect
 id imbSendComment
 id imbUsername
-id imb_flip_camera
 id imvAvatar
 id imvAvatarInComment
 id imvAvatarInSharedPlace
@@ -252,9 +245,11 @@ id main_fragment
 id nav_graph
 id not_clickable_zone
 id pgbWait
+id previewView
 id progressBar
 id rcvVideoSummary
 id rcv_users
+id recordButton
 id recycle_view_video_summary
 id referral_code
 id referral_code_input
@@ -271,8 +266,6 @@ id text_followers
 id text_following
 id text_likes
 id text_menu
-id texture_view_back
-id texture_view_front
 id textview_first
 id textview_second
 id top_menu_bar
@@ -286,7 +279,6 @@ id tvSubmitSearch
 id tvTitle
 id tvUsername
 id tvVideo
-id tv_flip_camera
 id tv_followers_userMame
 id tv_following_userMame
 id tv_phone
@@ -306,6 +298,7 @@ id txvUsernameInSharedPlace
 id txv_alternative
 id txv_done
 id txv_username
+id uploadButton
 id videoView
 id viewPager
 id view_count
@@ -470,3 +463,4 @@ style tiktok_button_transparent
 styleable FullscreenAttrs fullscreenBackgroundColor fullscreenTextColor
 xml backup_rules
 xml data_extraction_rules
+xml file_paths

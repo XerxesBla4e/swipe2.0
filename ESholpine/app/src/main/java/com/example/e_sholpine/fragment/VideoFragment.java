@@ -8,10 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -27,7 +25,6 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -35,12 +32,11 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
     private Context context = null;
     private TextView tvVideo;
     private ViewPager2 viewPager2;
-    ArrayList<Video> videos;
+    public ArrayList<Video> videos;
     public VideoAdapter videoAdapter;
     FirebaseAuth mAuth;
     FirebaseUser user;
     FirebaseFirestore db;
-    StorageReference storageRef;
     Uri videoUri;
     private static final String TAG = "VideoFragment";
 
@@ -96,6 +92,13 @@ public class VideoFragment extends Fragment implements View.OnClickListener {
                 videoAdapter.updateWatchCount(position);
                 Log.e("Selected_Page", String.valueOf(videoAdapter.getCurrentPosition()));
                 videoAdapter.updateCurrentPosition(position);
+
+                // Preload next video
+                int nextPosition = position + 1;
+                if (nextPosition < videos.size()) {
+                    videoAdapter.playVideo(nextPosition); // Prepare and start loading
+                    videoAdapter.pauseVideo(nextPosition); // Pause immediately
+                }
             }
 
             @Override

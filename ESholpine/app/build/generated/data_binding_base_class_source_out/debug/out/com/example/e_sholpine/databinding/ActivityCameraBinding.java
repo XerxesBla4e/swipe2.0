@@ -2,16 +2,14 @@
 package com.example.e_sholpine.databinding;
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.camera.view.PreviewView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.e_sholpine.R;
@@ -24,60 +22,25 @@ public final class ActivityCameraBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final Button btnUploadVideo;
+  public final Button flipButton;
 
   @NonNull
-  public final Button buttonClose;
+  public final PreviewView previewView;
 
   @NonNull
-  public final Button buttonContinue;
+  public final Button recordButton;
 
   @NonNull
-  public final Button buttonPause;
+  public final ImageButton uploadButton;
 
-  @NonNull
-  public final Button buttonRecord;
-
-  @NonNull
-  public final Button buttonStop;
-
-  @NonNull
-  public final FrameLayout cameraFrame;
-
-  @NonNull
-  public final FrameLayout flMain;
-
-  @NonNull
-  public final ImageButton imbFlipCamera;
-
-  @NonNull
-  public final TextureView textureViewBack;
-
-  @NonNull
-  public final TextureView textureViewFront;
-
-  @NonNull
-  public final TextView tvFlipCamera;
-
-  private ActivityCameraBinding(@NonNull RelativeLayout rootView, @NonNull Button btnUploadVideo,
-      @NonNull Button buttonClose, @NonNull Button buttonContinue, @NonNull Button buttonPause,
-      @NonNull Button buttonRecord, @NonNull Button buttonStop, @NonNull FrameLayout cameraFrame,
-      @NonNull FrameLayout flMain, @NonNull ImageButton imbFlipCamera,
-      @NonNull TextureView textureViewBack, @NonNull TextureView textureViewFront,
-      @NonNull TextView tvFlipCamera) {
+  private ActivityCameraBinding(@NonNull RelativeLayout rootView, @NonNull Button flipButton,
+      @NonNull PreviewView previewView, @NonNull Button recordButton,
+      @NonNull ImageButton uploadButton) {
     this.rootView = rootView;
-    this.btnUploadVideo = btnUploadVideo;
-    this.buttonClose = buttonClose;
-    this.buttonContinue = buttonContinue;
-    this.buttonPause = buttonPause;
-    this.buttonRecord = buttonRecord;
-    this.buttonStop = buttonStop;
-    this.cameraFrame = cameraFrame;
-    this.flMain = flMain;
-    this.imbFlipCamera = imbFlipCamera;
-    this.textureViewBack = textureViewBack;
-    this.textureViewFront = textureViewFront;
-    this.tvFlipCamera = tvFlipCamera;
+    this.flipButton = flipButton;
+    this.previewView = previewView;
+    this.recordButton = recordButton;
+    this.uploadButton = uploadButton;
   }
 
   @Override
@@ -107,81 +70,32 @@ public final class ActivityCameraBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnUploadVideo;
-      Button btnUploadVideo = ViewBindings.findChildViewById(rootView, id);
-      if (btnUploadVideo == null) {
+      id = R.id.flipButton;
+      Button flipButton = ViewBindings.findChildViewById(rootView, id);
+      if (flipButton == null) {
         break missingId;
       }
 
-      id = R.id.button_close;
-      Button buttonClose = ViewBindings.findChildViewById(rootView, id);
-      if (buttonClose == null) {
+      id = R.id.previewView;
+      PreviewView previewView = ViewBindings.findChildViewById(rootView, id);
+      if (previewView == null) {
         break missingId;
       }
 
-      id = R.id.button_continue;
-      Button buttonContinue = ViewBindings.findChildViewById(rootView, id);
-      if (buttonContinue == null) {
+      id = R.id.recordButton;
+      Button recordButton = ViewBindings.findChildViewById(rootView, id);
+      if (recordButton == null) {
         break missingId;
       }
 
-      id = R.id.button_pause;
-      Button buttonPause = ViewBindings.findChildViewById(rootView, id);
-      if (buttonPause == null) {
+      id = R.id.uploadButton;
+      ImageButton uploadButton = ViewBindings.findChildViewById(rootView, id);
+      if (uploadButton == null) {
         break missingId;
       }
 
-      id = R.id.button_record;
-      Button buttonRecord = ViewBindings.findChildViewById(rootView, id);
-      if (buttonRecord == null) {
-        break missingId;
-      }
-
-      id = R.id.button_stop;
-      Button buttonStop = ViewBindings.findChildViewById(rootView, id);
-      if (buttonStop == null) {
-        break missingId;
-      }
-
-      id = R.id.camera_frame;
-      FrameLayout cameraFrame = ViewBindings.findChildViewById(rootView, id);
-      if (cameraFrame == null) {
-        break missingId;
-      }
-
-      id = R.id.flMain;
-      FrameLayout flMain = ViewBindings.findChildViewById(rootView, id);
-      if (flMain == null) {
-        break missingId;
-      }
-
-      id = R.id.imb_flip_camera;
-      ImageButton imbFlipCamera = ViewBindings.findChildViewById(rootView, id);
-      if (imbFlipCamera == null) {
-        break missingId;
-      }
-
-      id = R.id.texture_view_back;
-      TextureView textureViewBack = ViewBindings.findChildViewById(rootView, id);
-      if (textureViewBack == null) {
-        break missingId;
-      }
-
-      id = R.id.texture_view_front;
-      TextureView textureViewFront = ViewBindings.findChildViewById(rootView, id);
-      if (textureViewFront == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_flip_camera;
-      TextView tvFlipCamera = ViewBindings.findChildViewById(rootView, id);
-      if (tvFlipCamera == null) {
-        break missingId;
-      }
-
-      return new ActivityCameraBinding((RelativeLayout) rootView, btnUploadVideo, buttonClose,
-          buttonContinue, buttonPause, buttonRecord, buttonStop, cameraFrame, flMain, imbFlipCamera,
-          textureViewBack, textureViewFront, tvFlipCamera);
+      return new ActivityCameraBinding((RelativeLayout) rootView, flipButton, previewView,
+          recordButton, uploadButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

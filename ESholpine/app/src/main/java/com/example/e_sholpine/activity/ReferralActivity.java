@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class ReferralActivity extends AppCompatActivity {
 
-    private static final int PAYMENT_AMOUNT = 500;
+    private static final int PAYMENT_AMOUNT = 3000;
     private static final int READ_SMS_PERMISSION_REQUEST_CODE = 101;
     private static final int EDIT_PROFILE_REQUEST_CODE = 1;
     private static final String TAG = "ReferralActivity";
@@ -92,7 +92,7 @@ public class ReferralActivity extends AppCompatActivity {
         if (referralCodeFromIntent != null) {
             referralCodeInput.setText(referralCodeFromIntent);
         } else {
-            handleDeepLink(getIntent());
+         //   handleDeepLink(getIntent());
         }
 
         checkReferralStatusAndUpdateUI();
@@ -106,17 +106,17 @@ public class ReferralActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        handleDeepLink(intent);
+        //handleDeepLink(intent);
     }
 
-    private void handleDeepLink(Intent intent) {
+   /* private void handleDeepLink(Intent intent) {
         Uri data = intent.getData();
         if (data != null && data.getQueryParameter("code") != null) {
             String referralCode = data.getQueryParameter("code");
             referralCodeInput.setText(referralCode);
             applyReferralCodeFromLink(referralCode);
         }
-    }
+    }*/
 
     private void getUserPhoneNumber() {
         userRef.get().addOnCompleteListener(task -> {
@@ -505,6 +505,7 @@ public class ReferralActivity extends AppCompatActivity {
         return code.toString();
     }
 
+
     private void applyReferralCode() {
         String inputCode = referralCodeInput.getText().toString().trim();
         if (inputCode.isEmpty()) {
@@ -528,7 +529,7 @@ public class ReferralActivity extends AppCompatActivity {
                                         DocumentReference referrerRef = db.collection("referrals").document(referrerId);
                                         Map<String, Object> referralEntry = new HashMap<>();
                                         referralEntry.put("userId", userId);
-                                        referralEntry.put("timestamp", FieldValue.serverTimestamp());
+                                        referralEntry.put("timestamp", System.currentTimeMillis()); // FIX: Use client timestamp
                                         referralEntry.put("paid", false);
                                         referrerRef.update("referredUsers", FieldValue.arrayUnion(referralEntry))
                                                 .addOnSuccessListener(aVoid -> {
@@ -570,7 +571,7 @@ public class ReferralActivity extends AppCompatActivity {
                                         DocumentReference referrerRef = db.collection("referrals").document(referrerId);
                                         Map<String, Object> referralEntry = new HashMap<>();
                                         referralEntry.put("userId", userId);
-                                        referralEntry.put("timestamp", FieldValue.serverTimestamp());
+                                        referralEntry.put("timestamp", System.currentTimeMillis()); // FIX: Use client timestamp
                                         referralEntry.put("paid", false);
                                         referrerRef.update("referredUsers", FieldValue.arrayUnion(referralEntry))
                                                 .addOnSuccessListener(aVoid -> {
@@ -589,6 +590,7 @@ public class ReferralActivity extends AppCompatActivity {
                             .addOnFailureListener(e -> Toast.makeText(this, "Error checking referral code", Toast.LENGTH_SHORT).show());
                 });
     }
+
 
     private void promptToJoinAfterReferral(String userId) {
         new AlertDialog.Builder(this)

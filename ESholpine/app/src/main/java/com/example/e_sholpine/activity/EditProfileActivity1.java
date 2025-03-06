@@ -112,13 +112,6 @@ public class EditProfileActivity1 extends Activity implements View.OnClickListen
         super.onStart();
 
         if (user != null) {
-            if (user.getPhoneNumber().isEmpty()) {
-                llPhone.setVisibility(View.GONE);
-                llEmail.setVisibility(View.VISIBLE);
-            } else {
-                llPhone.setVisibility(View.VISIBLE);
-                llEmail.setVisibility(View.GONE);
-            }
             DocumentReference docRef = db.collection("users").document(user.getUid().toString());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override

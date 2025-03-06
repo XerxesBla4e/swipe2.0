@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.e_sholpine.test.app-mergeDebugAndroidTestResources-2:/values-v18/values-v18.xml",
+            "outputFile": "com.example.e_sholpine.test.app-mergeDebugAndroidTestResources-3:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\8b93b161a98fda7c1f67d503e013a78c\\transformed\\core-1.6.1\\res\\values-v18\\values.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1ef0c8238ac3bcaf87874fd97ba1cab3\\transformed\\core-1.6.1\\res\\values-v18\\values.xml",
                     "from": {
                         "startLines": "4,12",
                         "startColumns": "0,0",

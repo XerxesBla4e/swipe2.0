@@ -8,8 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -22,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +38,14 @@ import com.example.e_sholpine.model.Video;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.StyledPlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultDataSource;
+import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
+import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
+import com.google.android.exoplayer2.upstream.cache.SimpleCache;
+import com.google.android.exoplayer2.util.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,6 +60,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -75,12 +80,19 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     boolean isPlaying = true;
     public String videoUri;
     private static final String TAG = "VideoAdapter";
+    private static SimpleCache cache; // Shared cache instance
 
     public VideoAdapter(Context context, List<Video> videos) {
         this.context = context;
         this.videos = videos;
         videoViewHolders = new ArrayList<>();
         currentPosition = 0;
+
+        // Initialize cache
+        if (cache == null) {
+            File cacheDir = new File(context.getCacheDir(), "media_cache");
+            cache = new SimpleCache(cacheDir, new LeastRecentlyUsedCacheEvictor(100 * 1024 * 1024)); // 100MB cache
+        }
     }
 
     public static void setUser(FirebaseUser user) {
@@ -101,6 +113,18 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
         holder.setVideoObjects(videos.get(position));
         videoViewHolders.add(position, holder);
+
+        // Preload next video
+        int nextPosition = position + 1;
+        if (nextPosition < videos.size() && nextPosition < videoViewHolders.size()) {
+            VideoViewHolder nextHolder = videoViewHolders.get(nextPosition);
+            if (nextHolder != null && nextHolder.exoPlayer != null) {
+                MediaItem nextMediaItem = MediaItem.fromUri(videos.get(nextPosition).getVideoUri());
+                nextHolder.exoPlayer.setMediaItem(nextMediaItem);
+                nextHolder.exoPlayer.prepare();
+                nextHolder.exoPlayer.setPlayWhenReady(false);
+            }
+        }
     }
 
     public void updateCurrentPosition(int pos) {
@@ -213,10 +237,19 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
         public void playVideo() {
             if (exoPlayer == null) {
-                exoPlayer = new ExoPlayer.Builder(videoView.getContext()).build();
+                exoPlayer = new ExoPlayer.Builder(videoView.getContext())
+                        .setLoadControl(new com.google.android.exoplayer2.DefaultLoadControl.Builder()
+                                .setBufferDurationsMs(2000, 5000, 500, 1000)
+                                .build())
+                        .build();
                 videoView.setPlayer(exoPlayer);
+                DataSource.Factory dataSourceFactory = new DefaultDataSource.Factory(videoView.getContext());
+                CacheDataSource.Factory cacheDataSourceFactory = new CacheDataSource.Factory()
+                        .setCache(cache)
+                        .setUpstreamDataSourceFactory(dataSourceFactory);
                 MediaItem mediaItem = MediaItem.fromUri(videoUri);
-                exoPlayer.setMediaItem(mediaItem);
+                exoPlayer.setMediaSource(new ProgressiveMediaSource.Factory(cacheDataSourceFactory)
+                        .createMediaSource(mediaItem));
                 exoPlayer.setRepeatMode(ExoPlayer.REPEAT_MODE_ONE);
                 exoPlayer.prepare();
             }
@@ -255,12 +288,25 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             txvDescription.setText(videoObject.getDescription());
             tvComment.setText(String.valueOf(videoObject.getTotalComments()));
 
-            this.videoUri = videoObject.getVideoUri(); // Store video URI
+            this.videoUri = videoObject.getVideoUri();
             MediaItem mediaItem = MediaItem.fromUri(videoUri);
-            if (exoPlayer != null) exoPlayer.release();
-            exoPlayer = new ExoPlayer.Builder(videoView.getContext()).build();
-            videoView.setPlayer(exoPlayer);
-            exoPlayer.addMediaItem(mediaItem);
+
+            DataSource.Factory dataSourceFactory = new DefaultDataSource.Factory(videoView.getContext());
+            CacheDataSource.Factory cacheDataSourceFactory = new CacheDataSource.Factory()
+                    .setCache(cache)
+                    .setUpstreamDataSourceFactory(dataSourceFactory);
+
+            if (exoPlayer == null) {
+                exoPlayer = new ExoPlayer.Builder(videoView.getContext())
+                        .setLoadControl(new com.google.android.exoplayer2.DefaultLoadControl.Builder()
+                                .setBufferDurationsMs(2000, 5000, 500, 1000)
+                                .build())
+                        .build();
+                videoView.setPlayer(exoPlayer);
+            }
+            exoPlayer.clearMediaItems();
+            exoPlayer.setMediaSource(new ProgressiveMediaSource.Factory(cacheDataSourceFactory)
+                    .createMediaSource(mediaItem));
             exoPlayer.setRepeatMode(ExoPlayer.REPEAT_MODE_ONE);
             exoPlayer.prepare();
             pauseVideo();
@@ -328,11 +374,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                 return;
             }
 
-            // Handle download button click
             if (view.getId() == imvDownload.getId()) {
                 downloadVideo();
             }
-
 
             if (view.getId() == imvMore.getId()) {
                 if (authorId.equals(user.getUid())) {
@@ -348,9 +392,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                 return;
             }
 
-            if (view.getId() == tvFavorites.getId() ) {
+            if (view.getId() == tvFavorites.getId()) {
                 handleTymClick(view);
-
                 return;
             }
 
@@ -417,8 +460,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
         private void shareVideoLink() {
             Log.d(TAG, "Attempting to share video with URI: " + videoUri);
-
-            // If videoUri is already a downloadable URL, use it directly
             if (videoUri.startsWith("http")) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -427,7 +468,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                 context.startActivity(Intent.createChooser(shareIntent, "Share video via"));
                 Log.d(TAG, "Sharing direct URL: " + videoUri);
             } else {
-                // If videoUri is a Firebase Storage path, get the download URL
                 StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(videoUri);
                 storageRef.getDownloadUrl()
                         .addOnSuccessListener(uri -> {
@@ -466,7 +506,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         }
 
         private void downloadVideo() {
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(videoUri));
+            DownloadManager.Request request = new DownloadManager.Request(android.net.Uri.parse(videoUri));
             request.setTitle("Downloading Video");
             request.setDescription("Your video is being downloaded");
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);

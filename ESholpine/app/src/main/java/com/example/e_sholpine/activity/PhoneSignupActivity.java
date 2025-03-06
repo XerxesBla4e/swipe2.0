@@ -323,7 +323,7 @@ public class PhoneSignupActivity extends FragmentActivity implements View.OnClic
             Toast.makeText(this, getString(R.string.error_PhoneAuth, phone), Toast.LENGTH_SHORT).show();
         } else {
             dialog.show();
-            String formattedPhone = "+256" + phone.substring(phone.length() - 9);
+            String formattedPhone = "256" + phone.substring(phone.length() - 9);
 
             //.makeText(this, getString(R.string.error_PhoneAuth,+formattedPhone, Toast.LENGTH_SHORT).show();
             edtPhone.setText(formattedPhone);
