@@ -17,10 +17,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.e_sholpine.R;
-import com.example.e_sholpine.fragment.InboxFragment;
-import com.example.e_sholpine.fragment.ProfileFragment;
-import com.example.e_sholpine.fragment.SearchFragment;
-import com.example.e_sholpine.fragment.VideoFragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
